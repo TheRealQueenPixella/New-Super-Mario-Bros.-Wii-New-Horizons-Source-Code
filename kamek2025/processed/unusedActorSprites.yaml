@@ -1,0 +1,27 @@
+hooks:
+- addr_jpn: 2150670800
+  addr_jpn2: 2150670800
+  addr_kor: 2150722544
+  addr_ntsc: 2150671280
+  addr_ntsc2: 2150671280
+  addr_pal: 2150672048
+  addr_pal2: 2150672048
+  addr_twn: 2150715312
+  data: 0035 0000  00000008 FFFFFFF0  00000000 00000002 00000002 00000002  0000 0000
+    0000 0000  0000 0000
+  name: MakeSprite22SpawnBabyGoomba
+  type: patch
+- addr_jpn: 2150680840
+  addr_jpn2: 2150680840
+  addr_kor: 2150732584
+  addr_ntsc: 2150681320
+  addr_ntsc2: 2150681320
+  addr_pal: 2150682088
+  addr_pal2: 2150682088
+  addr_twn: 2150725352
+  data: 020E 0000  00000000 00000000  00000000 00000000 00000100 00000100  0000 0000
+    0000 0000  0008 0000
+  name: MakeSprite273SpawnMANTAMGR2
+  type: patch
+source_files:
+- ../src/unusedActorSprites.cpp
