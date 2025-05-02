@@ -1,0 +1,28 @@
+hooks:
+- branch_type: b
+  name: DisablePeachThankMP
+  src_addr_jpn: 2159319324
+  src_addr_jpn2: 2159319356
+  src_addr_kor: 2159343116
+  src_addr_ntsc: 2159321148
+  src_addr_ntsc2: 2159321180
+  src_addr_pal: 2159321116
+  src_addr_pal2: 2159321148
+  src_addr_twn: 2159342988
+  target_func: DisablePeachThankMP
+  type: branch_insn
+- branch_type: b
+  name: DisablePeachDmEscort
+  src_addr_jpn: 2159318912
+  src_addr_jpn2: 2159318944
+  src_addr_kor: 2159342704
+  src_addr_ntsc: 2159320736
+  src_addr_ntsc2: 2159320768
+  src_addr_pal: 2159320704
+  src_addr_pal2: 2159320736
+  src_addr_twn: 2159342576
+  target_func: DisablePeachDmEscort
+  type: branch_insn
+source_files:
+- ../src/endingMgr.cpp
+- ../src/endingMgr.S

@@ -1,0 +1,12 @@
+---
+source_files: [../src/unusedActorSprites.cpp]
+hooks:
+  - name: MakeSprite22SpawnMiniGoomba
+    type: patch
+    addr_pal: 0x8030a6b0
+    data: '00350000'
+
+  - name: MakeSprite273SpawnMANTAMGR2
+    type: patch
+    addr_pal: 0x8030cde8
+    data: '020E0000'

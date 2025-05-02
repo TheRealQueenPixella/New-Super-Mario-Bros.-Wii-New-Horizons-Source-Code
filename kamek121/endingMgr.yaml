@@ -1,0 +1,14 @@
+---
+source_files: [../src/endingMgr.cpp, ../src/endingMgr.S]
+hooks: 
+  - name: DisablePeachThankMP
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80b4a01c
+    target_func: 'DisablePeachThankMP'
+
+  - name: DisablePeachDmEscort
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80B49E80
+    target_func: 'DisablePeachDmEscort'

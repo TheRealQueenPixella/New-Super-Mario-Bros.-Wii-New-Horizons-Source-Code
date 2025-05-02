@@ -1,0 +1,15 @@
+hooks:
+- branch_type: b
+  name: ReadWorldNumberFromLevelInfo
+  src_addr_jpn: 2157098224
+  src_addr_jpn2: 2157098240
+  src_addr_kor: 2157115792
+  src_addr_ntsc: 2157098928
+  src_addr_ntsc2: 2157098944
+  src_addr_pal: 2157098928
+  src_addr_pal2: 2157098944
+  src_addr_twn: 2157115712
+  target_func: dWorldSelectGuide_c::newUpdateWorldNum(void)
+  type: branch_insn
+source_files:
+- ../src/worldselectguide.cpp
