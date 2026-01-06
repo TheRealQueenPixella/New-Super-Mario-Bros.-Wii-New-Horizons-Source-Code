@@ -1,0 +1,17 @@
+---
+source_files: [../src/fileselect.S, ../src/fileselect.cpp]
+hooks:
+  - name: DF_DispCurrentWorld
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x8077DA10
+    target_func: 'dispCurrentWorldNum'
+
+  - name: FS_RemoveMultiSelect
+    type: patch
+    addr_pal: 0x80783D04
+    data: '4800001C'
+
+  - {name: FS_DisableMultiIn,  type: nop_insn, area_pal: [0x807837FC, 0x8078380C]}
+  - {name: FS_DisableMultiIn2, type: nop_insn, area_pal: [0x8078394C, 0x8078395C]}
+  - {name: FS_DisableMultiOut, type: nop_insn, area_pal: [0x80784220, 0x80784230]}

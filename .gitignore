@@ -1,0 +1,14 @@
+Kamek/Build_*
+Kamek/processed
+Kamek/NewerASM
+Kamek/kamek_pal2.x
+Kamek/kamek_ntsc.x
+Kamek/kamek_ntsc2.x
+Kamek/kamek_jpn.x
+Kamek/kamek_jpn2.x
+Kamek/kamek_kor.x
+Kamek/kamek_twn.x
+Kamek/tools/*.pyc
+*.pyc
+Kamek/tools/__pycache__
+__pycache__

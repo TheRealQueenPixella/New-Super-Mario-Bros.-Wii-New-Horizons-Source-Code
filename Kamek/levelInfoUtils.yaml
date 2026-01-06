@@ -1,0 +1,57 @@
+---
+source_files:
+  - ../src/levelInfoUtils.cpp
+  - ../src/worldSelectGuide.cpp
+  - ../src/courseSelectGuide.cpp
+  - ../src/levelnames.cpp #pregame
+  - ../src/pauseWindow.cpp
+  - ../src/collectionCoin.cpp
+  - ../src/collectionCoin.S
+hooks:
+  - name: UpdateLevelList
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800B4F90
+    target_func: 'newGetCourseNum(int, int)'
+
+  - name: WorldSelectGuide_ReadLevelInfo
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x8092B7B0
+    target_func: 'dWorldSelectGuide_c::newUpdateWorldNum(void)'
+
+  - name: CourseSelectGuide_ReadLevelInfo
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80010B50
+    target_func: 'dCourseSelectGuide_c::newUpdateLevelDisplay(unsigned int)'
+
+  - name: PreGame_ReadLevelNames
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80B6C488
+    target_func: 'DoNames(int)'
+
+  - name: PauseWindow_ReadLevelInfo
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x8015AC60
+    target_func: 'Pausewindow_c::newLoadLevelName(void)'
+
+  - name: CollectionCoin_ReadWorldName
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80774B60
+    target_func: 'SCMWorldName(int)'
+
+  - name: CollectionCoin_ReadWorldName2
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80774C10
+    target_func: 'SCMWorldName2(int, int)'
+
+  - name: CollectionCoin_ReadLevelInfo
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80776BB0
+    target_func: 'SCMWorldAndLevelNumber'

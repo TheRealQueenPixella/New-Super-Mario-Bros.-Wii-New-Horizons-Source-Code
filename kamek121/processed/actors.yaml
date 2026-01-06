@@ -1,4 +1,0 @@
-hooks: []
-source_files:
-- ../src/actors.cpp
-- ../src/nsmbwVer.cpp
