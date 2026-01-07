@@ -901,5 +901,5 @@ ScriptCommand *world_map_scripts_table[] = {
     Z_Stock_Menu,
     Z_WorldSelect_Menu,
     Z_antlion_star,
-    Z_GameStart,
+    Z_W_Walking_in, // Formerly Z_GameStart
 };

@@ -29,18 +29,18 @@ hooks:
 #    addr_pal: 0x8008E6F8
 #    data: '38600000'
 
-#  - name: RemoveOpeningCS
-#    type: nop_insn
-#    area_pal: [0x809191C8, 0x809191D8]
+  - name: RemoveOpeningCS
+    type: nop_insn
+    area_pal: [0x809191C8, 0x809191D8]
 
   - name: TitleReplayLevels
     type: patch
     addr_pal: 0x802F4CD0
     data: '0003 0005 0100 0103 0200 0204 0215 0300 0304 0403 0404 0414 0517 0605 0706'
 
-#  - name: NoTitleScreenMovie
-#    type: nop_insn
-#    area_pal: 0x80781FB8
+  - name: NoTitleScreenMovie
+    type: nop_insn
+    area_pal: 0x80781FB8
 
 #  - name: SkipReplays
 #    type: patch
