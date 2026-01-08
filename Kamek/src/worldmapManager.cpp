@@ -14,6 +14,12 @@ int spawnMapManager() {
 
 class dWMManager_c : public dActor_c {
 public:
+	int onCreate();
+	int onExecute();
+
+	bool doInitialSave;
+	int saveState;
+
 	static dActor_c* build();
 	static dWMManager_c *instance;
 };
@@ -29,4 +35,37 @@ dActor_c* dWMManager_c::build() {
 
 	instance = c;
 	return c;
+}
+
+int dWMManager_c::onCreate() {
+	// Save the game on our first play, since we don't play the opening movie anymore
+	SaveBlock *save = GetSaveFile()->GetBlock(-1);
+	if (save->bitfield & 1) {
+		doInitialSave = true;
+	}
+
+	return true;
+}
+
+int dWMManager_c::onExecute() {
+	if (doInitialSave) {
+		SaveBlock *save = GetSaveFile()->GetBlock(-1);
+		if (saveState == 0) { // Do save
+			save->onWorldDataFlag(0, 1); // Open W1
+			SaveGame(0x0, false);
+			saveState++;
+		} else if (saveState == 1) { // Wait for save end
+			if (!GetSaveFile()->CheckIfWriting()) {
+				if (GetSaveHandler()->CurrentError == 0) {
+					// Save complete
+					save->offWorldDataFlag(0, 1); // Re-lock W1, so the airship cutscene plays
+					doInitialSave = false;
+				} else {
+					OSReport("ERROR %d OCCURED DURING SAVE\n", GetSaveHandler()->CurrentError);
+				}
+			}
+		}
+	}
+
+	return true;
 }
