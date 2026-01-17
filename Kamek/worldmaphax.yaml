@@ -114,3 +114,7 @@ hooks:
     type: patch
     addr_pal: 0x808df15c
     data: '3c800004'
+  
+  - name: NoSpecialWorldCourseOverride
+    type: nop_insn
+    area_pal: [0x808CE56C, 0x808CE57C]
