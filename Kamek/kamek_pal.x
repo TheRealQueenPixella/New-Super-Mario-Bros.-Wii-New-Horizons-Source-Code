@@ -2593,6 +2593,11 @@ SECTIONS {
 	setAnmChr__12daWmIsland_cFv = 0x808D3E40;
 	calcAngle__12daWmIsland_cFv = 0x808D4470;
 
+	continueFromShowCannonHud = 0x80157E2C;
+	returnFromTimerFor0Cannon = 0x800E3B38;
+	continueFromTimerFor0Cannon = 0x800E3A6C;
+	m_startGameInfo__7dInfo_c = 0x80315E90;
+
 	.text : {
 		FILL (0)
 

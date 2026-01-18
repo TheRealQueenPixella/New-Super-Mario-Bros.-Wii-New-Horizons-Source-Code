@@ -342,3 +342,15 @@ hooks:
     branch_type: b
     src_addr_pal: 0x80788CA0
     target_func: 'FixGameOverLetters(void *)'
+
+  - name: ShowHudFor0Cannon
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x80157DBC
+    target_func: 'ShowHudFor0Cannon'
+  
+  - name: TimerFor0Cannon
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x800E3A60
+    target_func: 'TimerFor0Cannon'

@@ -5,6 +5,38 @@ _Z3absf:
 	frsp f1, f1
 	blr
 
+.extern continueFromShowCannonHud # 0x80157E2C
+.global ShowHudFor0Cannon
+ShowHudFor0Cannon:
+	lbz r0, 0xC(r3) # world
+	cmpwi r0, 0x0
+	beq doShowHud
+
+	blr
+
+doShowHud:
+	b continueFromShowCannonHud
+
+.extern m_startGameInfo__7dInfo_c
+.extern returnFromTimerFor0Cannon # 0x800E3B38
+.extern continueFromTimerFor0Cannon # 0x800E3A6C
+.global TimerFor0Cannon
+TimerFor0Cannon:
+	cmplwi r3, 0x23 # check for cannon stage
+	bne skipTimerExec
+
+	lis r3, m_startGameInfo__7dInfo_c@h
+	ori r3, r3, m_startGameInfo__7dInfo_c@l
+	lbz r3, 0xC(r3) # get world
+
+	cmplwi r3, 0x0
+	bne skipTimerExec
+
+	b continueFromTimerFor0Cannon
+
+skipTimerExec:
+	b returnFromTimerFor0Cannon
+
 .global JrFloorFireHax
 JrFloorFireHax:
 	stw r0, 0x120(r30)
