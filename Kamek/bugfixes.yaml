@@ -1,6 +1,6 @@
 ---
 # The stuff that has been commented out can be reenabled at will
-source_files: [../src/randomcrap.S, ../src/music.cpp, ../src/fix38.S, ../src/nullsub.S, ../src/levelinfo.cpp, ../src/newer.cpp, ../src/boss.cpp]
+source_files: [../src/randomcrap.S, ../src/music.cpp, ../src/fix38.S, ../src/nullsub.S, ../src/levelinfo.cpp, ../src/newer.cpp, ../src/boss.cpp, ../src/gameOver.cpp]
 hooks:
   - name: PermanentFrontFog
     type: patch
@@ -336,3 +336,9 @@ hooks:
     type: patch
     addr_pal: 0x807DC524
     data: '38000014' # li r0, 0x14
+
+  - name: FixGameOverLetters
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80788CA0
+    target_func: 'FixGameOverLetters(void *)'
