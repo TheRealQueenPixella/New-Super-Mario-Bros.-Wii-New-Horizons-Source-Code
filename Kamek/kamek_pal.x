@@ -2589,6 +2589,10 @@ SECTIONS {
 	returnToCullCode = 0x808E3188;
 	returnToCullCode2 = 0x808E3260;
 
+	setFogIdx__12daWmIsland_cFv = 0x808D3F30;
+	setAnmChr__12daWmIsland_cFv = 0x808D3E40;
+	calcAngle__12daWmIsland_cFv = 0x808D4470;
+
 	.text : {
 		FILL (0)
 
