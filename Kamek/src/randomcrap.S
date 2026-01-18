@@ -23,19 +23,19 @@ doShowHud:
 .global TimerFor0Cannon
 TimerFor0Cannon:
 	cmplwi r3, 0x23 # check for cannon stage
-	bne skipTimerExec
+	bne doTimerExec
 
 	lis r3, m_startGameInfo__7dInfo_c@h
 	ori r3, r3, m_startGameInfo__7dInfo_c@l
 	lbz r3, 0xC(r3) # get world
 
 	cmplwi r3, 0x0
-	bne skipTimerExec
+	beq doTimerExec
 
-	b continueFromTimerFor0Cannon
-
-skipTimerExec:
 	b returnFromTimerFor0Cannon
+
+doTimerExec:
+	b continueFromTimerFor0Cannon
 
 .global JrFloorFireHax
 JrFloorFireHax:
