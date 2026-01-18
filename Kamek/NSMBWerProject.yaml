@@ -76,3 +76,4 @@ modules:
   - processed/worldmaphax.yaml
   - processed/levelInfoUtils.yaml
   - processed/wmCullHack.yaml
+  - processed/playerColors.yaml

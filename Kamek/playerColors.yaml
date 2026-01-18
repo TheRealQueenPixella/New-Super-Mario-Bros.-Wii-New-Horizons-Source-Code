@@ -1,0 +1,21 @@
+# Player color hacks for the life counters on the character change screen
+---
+source_files: [../src/playerColors.cpp]
+hooks:
+  - name: LuigiLifeColor
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x807730A0
+    target_func: 'dCharacterChangeSelectContents_c::setRestLuigi(int)'
+
+  - name: YellowKinoLifeColor
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x807731A0
+    target_func: 'dCharacterChangeSelectContents_c::setRestKinoY(int)'
+
+  - name: BlueKinoLifeColor
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80773120
+    target_func: 'dCharacterChangeSelectContents_c::setRestKinoB(int)'
