@@ -1,0 +1,8 @@
+---
+source_files: [../src/titleVersion.S]
+hooks:
+  - name: TitleScreenVersion
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80781C8C
+    target_func: 'TitleScreenVersion'

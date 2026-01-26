@@ -78,3 +78,4 @@ modules:
   - processed/wmCullHack.yaml
   - processed/playerColors.yaml
   - processed/characterChange.yaml
+  - processed/titleVersion.yaml

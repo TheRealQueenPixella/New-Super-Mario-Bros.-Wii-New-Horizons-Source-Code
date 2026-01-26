@@ -2634,6 +2634,8 @@ SECTIONS {
 
 	CSMonExecute = 0x8077aca0;
 
+	returnFromTitleScreenVersion = 0x80781C90;
+
 	.text : {
 		FILL (0)
 
