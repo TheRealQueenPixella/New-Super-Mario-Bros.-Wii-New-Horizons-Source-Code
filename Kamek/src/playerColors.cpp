@@ -26,12 +26,23 @@ public:
 	int marioLives_maybe, luigiLives, yellowToadLives, blueToadLives;
 
 	// funcRun changes from 0 to 1 between the run, so it updates the next "button", then the old one
+	void setRestMario(int funcRun);
 	void setRestLuigi(int funcRun);
 	void setRestKinoY(int funcRun);
 	void setRestKinoB(int funcRun);
 };
 
 static const int fieldLength = 2;
+
+void dCharacterChangeSelectContents_c::setRestMario(int funcRun) {
+	if (funcRun == 0) {
+		T_kakeru_00->colour2 = marioColor;
+		T_zanki_01->colour2 = marioColor;
+	} else {
+		T_kakeru_01->colour2 = marioColor;
+		T_zanki_00->colour2 = marioColor;
+	}
+}
 
 void dCharacterChangeSelectContents_c::setRestLuigi(int funcRun) {
 	if (funcRun == 0) {

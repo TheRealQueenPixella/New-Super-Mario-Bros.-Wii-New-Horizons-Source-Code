@@ -40,6 +40,8 @@
 .extern returnFrom_CharacterChangeSelectBase_FixIconUpdate # 0x807735A0
 .extern returnFrom_CharacterChangeSelectBase_FixIconUpdate_2 # 0x80773658
 
+.extern setRestMario__32dCharacterChangeSelectContents_cFi
+
 
 # Copy subplayer model into player 1 model
 
@@ -497,6 +499,13 @@ CharacterChangeSelectBase_FixIconUpdate_MarioUnlocked:
     rlwinm  r0, r0, 0, 24, 30
     ori     r0, r0, 0x01
     stb     r0, 0xBB(r5)
+
+    # Set mario life colors
+    slwi r0, r31, 2
+    add r5, r30, r0
+    mr r3, r5
+    li r4, 0
+    bl setRestMario__32dCharacterChangeSelectContents_cFi
 
     b returnFrom_CharacterChangeSelectBase_FixIconUpdate_2
 
