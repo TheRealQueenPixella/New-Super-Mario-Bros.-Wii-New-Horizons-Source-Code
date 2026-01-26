@@ -3,6 +3,13 @@
 #include "levelinfo.h"
 #include <stage.h>
 
+void SCM_WorldColorChange(int world, nw4r::lyt::TextBox *tb) {
+	int color = getColorArrayIdx(world);
+
+	tb->colour1 = sc_WorldColorArray[color][0];
+	tb->colour2 = sc_WorldColorArray[color][1];
+}
+
 void SCMWorldName(int param_1) {
     nw4r::lyt::TextBox *TextBox1 = *(nw4r::lyt::TextBox **)(param_1 + 0x474);
     nw4r::lyt::TextBox *TextBox2 = *(nw4r::lyt::TextBox **)(param_1 + 0x478);
@@ -24,6 +31,9 @@ void SCMWorldName(int param_1) {
 
 	TextBox1->SetString(wbuffer);
     TextBox2->SetString(wbuffer);
+
+	SCM_WorldColorChange(CurrentWorld, TextBox1);
+	SCM_WorldColorChange(CurrentWorld, TextBox2);
     return;
 }
 
@@ -46,6 +56,7 @@ void SCMWorldName2(int param_1, int param_2) {
 	}
 
 	TextBox->SetString(wbuffer);
+	SCM_WorldColorChange(CurrentWorld, TextBox);
     return;
 }
 
@@ -67,11 +78,32 @@ void handleFileters(int worldNumber, int levelNumber, m2d::EmbedLayout_c *layout
 	}
 }
 
-void SCMWorldAndLevelNumbers(nw4r::lyt::TextBox *T_worldNum_00, nw4r::lyt::TextBox *T_corseNum_00, nw4r::lyt::TextBox *T_pictureFont_00, nw4r::lyt::Pane *somePane, int worldNumber, int levelNumber) {
+void SCM_LevelColorChange(int world, nw4r::lyt::TextBox *T_worldNum_00, nw4r::lyt::TextBox *T_dash_00, nw4r::lyt::TextBox *T_corseNum_00) {
+	int color = getColorArrayIdx(world);
+
+	T_worldNum_00->colour1 = sc_WorldColorArray[color][0];
+	T_worldNum_00->colour2 = sc_WorldColorArray[color][1];
+
+	T_dash_00->colour1 = sc_WorldColorArray[color][0];
+	T_dash_00->colour2 = sc_WorldColorArray[color][1];
+
+	T_corseNum_00->colour1 = sc_WorldColorArray[color][0];
+	T_corseNum_00->colour2 = sc_WorldColorArray[color][1];
+}
+
+void SCMWorldAndLevelNumbers(m2d::EmbedLayout_c *layout, int worldNumber, int levelNumber) {
+	nw4r::lyt::Pane *rootPane = layout->layout.rootPane;
+	nw4r::lyt::TextBox *T_worldNum_00 = layout->findTextBoxByName("T_worldNum_00");
+	nw4r::lyt::TextBox *T_corseNum_00 = layout->findTextBoxByName("T_corseNum_00");
+	nw4r::lyt::TextBox *T_pictureFont_00 = layout->findTextBoxByName("T_pictureFont_00");
+
 	if (levelNumber == Stage_Invalid)
-		somePane->SetVisible(false);
+		rootPane->SetVisible(false);
 	else
-		somePane->SetVisible(true);
+		rootPane->SetVisible(true);
+
+	nw4r::lyt::TextBox *T_dash_00 = layout->findTextBoxByName("T_-_00");
+	SCM_LevelColorChange(worldNumber, T_worldNum_00, T_dash_00, T_corseNum_00);
 
     dLevelInfo_c::entry_s *level = dLevelInfo_c::s_info.searchBySlot(worldNumber, levelNumber);
     if (level) {

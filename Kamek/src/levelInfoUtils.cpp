@@ -142,3 +142,22 @@ u32 getStartingHouseKind() {
 		return getStartKinokoKind();
 	}
 }
+
+int getColorArrayIdx(int world) {
+	switch (world) {
+		case 0:
+			return 0; // W0
+		case 1:
+		case 5:
+			return 1; // W2, WB
+		case 3:
+		case 6:
+			return 3; // W3, WC
+		case 7:
+			return 4; // W4
+		case 8:
+			return 5; // W5
+		default:
+			return 2; // W1, WA, and undefined
+	}
+}

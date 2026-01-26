@@ -49,7 +49,22 @@ public:
 	u8 unk[2];
 
 	void newLoadLevelName();
+	void levelColorChange(int world);
 };
+
+void Pausewindow_c::levelColorChange(int world) {
+	int color = getColorArrayIdx(world);
+
+	T_worldNum_00->colour1 = sc_WorldColorArray[color][0];
+	T_worldNum_00->colour2 = sc_WorldColorArray[color][1];
+
+	nw4r::lyt::TextBox *T_hyphen_00 = layout.findTextBoxByName("T_hyphen_00");
+	T_hyphen_00->colour1 = sc_WorldColorArray[color][0];
+	T_hyphen_00->colour2 = sc_WorldColorArray[color][1];
+
+	T_corseNum_00->colour1 = sc_WorldColorArray[color][0];
+	T_corseNum_00->colour2 = sc_WorldColorArray[color][1];
+}
 
 void Pausewindow_c::newLoadLevelName() {
 	const wchar_t *convWorldName;
@@ -81,7 +96,9 @@ void Pausewindow_c::newLoadLevelName() {
 		P_coin->SetVisible(true);
 		T_worldNum_00->SetVisible(false);
 	}
-	
+
+	levelColorChange(wnum);
+
 	dLevelInfo_c::entry_s *level = dLevelInfo_c::s_info.searchBySlot(wnum, lnum);
 	if (level) {
 		convWorldName = getWorldNumber(level->displayWorld);
@@ -115,6 +132,15 @@ void Pausewindow_c::newLoadLevelName() {
 		} else {*/
 			levelName = dLevelInfo_c::s_info.getNameForLevel(level);
 		//}
+
+		// Stupid fix for 8-Airship having slightly too long of a name,
+		// and my dynamic resizer code doesn't work anymore
+		if ((wnum == 7) && (lnum == 37)) {
+			T_levelName_00->size.x += 16.0f;
+
+			layout.findPictureByName("P_bg_00")->size.x += 32.0f;
+			layout.findWindowByName("W_N_pauseMenu_00")->size.x += 32.0f;
+		}
 	} else {
 		T_corsePic_00->SetVisible(false);
 		T_corseNum_00->SetVisible(true);

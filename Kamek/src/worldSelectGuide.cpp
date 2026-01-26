@@ -38,4 +38,9 @@ void dWorldSelectGuide_c::newUpdateWorldNum() {
     }
 
 	T_worldNum_00->SetString(number);
+
+	// Set world color
+	int color = getColorArrayIdx(worldNum-1);
+	T_worldNum_00->colour1 = sc_WorldColorArray[color][0];
+	T_worldNum_00->colour2 = sc_WorldColorArray[color][1];
 }

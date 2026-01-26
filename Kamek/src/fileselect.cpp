@@ -17,6 +17,10 @@ extern "C" void DateFile_dispCurrentWorldNum(dBase_c *self, nw4r::lyt::TextBox *
 
     T_worldNumber_01->SetString(worldName);
 
+	int color = getColorArrayIdx(world);
+	T_worldNumber_01->colour1 = sc_WorldColorArray[color][0];
+	T_worldNumber_01->colour2 = sc_WorldColorArray[color][1];
+
     // Setup player icons
     m2d::EmbedLayout_c *layout = (m2d::EmbedLayout_c*)((int)self + 0x74);
 

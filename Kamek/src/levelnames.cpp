@@ -6,6 +6,7 @@
 #include <profileid.h>
 #include <stage.h>
 #include "levelinfo.h"
+#include <utils.h>
 
 extern char CurrentLevel;
 extern char CurrentWorld;
@@ -31,6 +32,10 @@ int DoNames(int state) {
 			worldObj = layout->findTextBoxByName("TXT_WorldName");
 			levelObj = layout->findTextBoxByName("TXT_LevelName");
 			if (worldObj == 0 || levelObj == 0) return state;
+
+			int color = getColorArrayIdx(CurrentWorld);
+			worldObj->colour1 = sc_WorldColorArray[color][0];
+			worldObj->colour2 = sc_WorldColorArray[color][1];
 
 			dLevelInfo_c::entry_s *level = dLevelInfo_c::s_info.searchBySlot(CurrentWorld, CurrentLevel);
 			dLevelInfo_c::entry_s *world = dLevelInfo_c::s_info.searchByDisplayNum(CurrentWorld+1, 100);

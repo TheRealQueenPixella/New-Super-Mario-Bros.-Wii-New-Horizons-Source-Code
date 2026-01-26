@@ -40,7 +40,22 @@ public:
 	leftArrowAnimActive, rightArrowAnimActive, livesUpdated;
 
 	void newUpdateLevelDisplay(u32 param);
+	void levelColorChange(int world);
 };
+
+void dCourseSelectGuide_c::levelColorChange(int world) {
+	int color = getColorArrayIdx(world);
+
+	T_worldNum_00->colour1 = sc_WorldColorArray[color][0];
+	T_worldNum_00->colour2 = sc_WorldColorArray[color][1];
+
+	nw4r::lyt::TextBox *T_worldNum_01 = layout.findTextBoxByName("T_worldNum_01");
+	T_worldNum_01->colour1 = sc_WorldColorArray[color][0];
+	T_worldNum_01->colour2 = sc_WorldColorArray[color][1];
+
+	T_cSelect_00->colour1 = sc_WorldColorArray[color][0];
+	T_cSelect_00->colour2 = sc_WorldColorArray[color][1];
+}
 
 void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 param) {
     if (param == 1) {
@@ -48,6 +63,8 @@ void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 param) {
 	} else {
 		T_cSelect_pic->SetVisible(false);
 		T_cSelect_00->SetVisible(true);
+
+		levelColorChange(currentWorldNum);
 
 		dLevelInfo_c::entry_s *level = dLevelInfo_c::s_info.searchBySlot(currentWorldNum, currentLevelNum);
 		if (level) {
