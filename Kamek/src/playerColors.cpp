@@ -33,11 +33,6 @@ public:
 
 static const int fieldLength = 2;
 
-GXColor marioColor = {217, 35, 35, 255};
-GXColor luigiColor = {64, 184, 51, 255};
-GXColor kinoBColor = {74, 91, 255, 255};
-GXColor kinoYColor = {255, 198, 45, 255};
-
 void dCharacterChangeSelectContents_c::setRestLuigi(int funcRun) {
 	if (funcRun == 0) {
 		WriteNumberToTextBox(&luigiLives, &fieldLength, T_zanki_01, false);

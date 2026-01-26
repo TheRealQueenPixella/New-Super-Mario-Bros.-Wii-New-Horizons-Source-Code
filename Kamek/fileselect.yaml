@@ -7,6 +7,15 @@ hooks:
     src_addr_pal: 0x8077DA10
     target_func: 'dispCurrentWorldNum'
 
+  - name: RemoveOriginalLivesSetup
+    type: nop_insn
+    area_pal: [0x8077DA30, 0x8077DA58]
+
+  - name: CSM_SavePlayerToFile
+    type: add_func_pointer
+    src_addr_pal: 0x809415f8
+    target_func: 'CSMStorePlayer(dBase_c *)'
+
   - name: FS_RemoveMultiSelect
     type: patch
     addr_pal: 0x80783D04

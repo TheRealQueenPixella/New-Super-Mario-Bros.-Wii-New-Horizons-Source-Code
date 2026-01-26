@@ -77,3 +77,4 @@ modules:
   - processed/levelInfoUtils.yaml
   - processed/wmCullHack.yaml
   - processed/playerColors.yaml
+  - processed/characterChange.yaml

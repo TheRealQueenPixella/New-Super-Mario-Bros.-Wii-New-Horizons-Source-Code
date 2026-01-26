@@ -74,6 +74,11 @@ extern int Player_Flags[4];
 extern int Player_Lives[4];
 extern int Player_Coins[4];
 
+static const GXColor marioColor = {217, 35,  35,  255};
+static const GXColor luigiColor = {64,  184, 51,  255};
+static const GXColor kinoBColor = {74,  91,  255, 255};
+static const GXColor kinoYColor = {255, 198, 45,  255};
+
 struct StartLevelInfo {
 	int maybeUnused;
 	unsigned char replayTypeMaybe; // 0x04
@@ -253,7 +258,12 @@ public:
 	u8 field_79C[10][4];		// 0x79C
 	u8 death_counts[10][0x2A];	// 0x7C4
 	u8 death_count_3_4_switch;	// 0x968
-	u8 pad[0x13];				// 0x969
+	union {
+		u8 pad[0x13];			// 0x969
+		struct {
+			u8 lastP1Character; // 0x969
+		};
+	};
 	u32 checksum;				// 0x97C
 
 	u32 GetLevelCondition(int world, int level);
