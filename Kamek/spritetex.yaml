@@ -823,3 +823,9 @@ hooks:
     branch_type: bl
     src_addr_pal: 0x80A58034
     target_func: 'TEX_RollingBarrel'
+  
+  - name: TEX_PalmTree
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x8088C484
+    target_func: 'TEX_PalmTree'

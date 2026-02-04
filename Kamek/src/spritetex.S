@@ -389,6 +389,13 @@ TEX_RollingBarrel:
 	b GetTexFilenameForR5
 
 
+.global TEX_PalmTree
+TEX_PalmTree:
+	lwz r5, 4(r28)
+	srwi r5, r5, 24
+	andi. r5, r5, 0xF
+	b GetTexFilenameForR5
+
 .global TEX_BigBoo
 TEX_BigBoo:
 	lwz r5, 4(r27)
