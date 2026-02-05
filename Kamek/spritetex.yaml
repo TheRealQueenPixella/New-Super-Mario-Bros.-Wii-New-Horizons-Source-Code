@@ -1,5 +1,5 @@
 ---
-source_files: [../src/spritetex.S]
+source_files: [../src/spritetex.S, ../src/spritetex.cpp]
 hooks:
   - name: BigBlockSound1
     type: branch_insn
@@ -829,3 +829,9 @@ hooks:
     branch_type: bl
     src_addr_pal: 0x8088C484
     target_func: 'TEX_PalmTree'
+
+  - name: SandPillarZOrder
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x808022BC
+    target_func: 'sandPillarZOrder(dStageActor_c *, int)'
