@@ -85,7 +85,7 @@ hooks:
   - name: loadMoreFiles
     type: patch
     addr_pal: 0x80927910
-    data: '281b0010' #281b0010 + new models
+    data: '281b0011' #281b0010 + new models
 
   - name: useNewFileListR31
     type: branch_insn
@@ -96,7 +96,7 @@ hooks:
   - name: loadMoreFiles2
     type: patch
     addr_pal: 0x80926c20
-    data: '281c0010' #281b0010 + new models
+    data: '281c0011' #281b0010 + new models
   
   - name: addReplayAndHardMode
     type: branch_insn

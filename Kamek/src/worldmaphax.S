@@ -63,6 +63,9 @@ useNewFileListR31:
 	blr
 
 .data
+cobSunkenShip: .string "cobSunkenShip"
+.align 4
+
 .global newAlwaysLoadedList
 newAlwaysLoadedList:
 	.long aRouteinfo_1
@@ -81,3 +84,4 @@ newAlwaysLoadedList:
 	.long aCharacter_s_12
 	.long aCobsurrender_0
 	.long aCobkinopio_1
+	.long cobSunkenShip
