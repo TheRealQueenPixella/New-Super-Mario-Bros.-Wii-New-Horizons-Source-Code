@@ -2588,6 +2588,7 @@ SECTIONS {
 	/* Map Culling */
 	returnToCullCode = 0x808E3188;
 	returnToCullCode2 = 0x808E3260;
+	returnFromWmActorCull = 0x800F2A4C;
 
 	setFogIdx__12daWmIsland_cFv = 0x808D3F30;
 	setAnmChr__12daWmIsland_cFv = 0x808D3E40;
@@ -2598,6 +2599,7 @@ SECTIONS {
 	continueFromTimerFor0Cannon = 0x800E3A6C;
 	m_startGameInfo__7dInfo_c = 0x80315E90;
 
+	/* P1 Change */
 	DWORD_8093CDF0 = 0x8093CDF0;
 	DWORD_8093F520 = 0x8093F520;
 	WMPlayer_loadSubplayers = 0x80902BD0;
