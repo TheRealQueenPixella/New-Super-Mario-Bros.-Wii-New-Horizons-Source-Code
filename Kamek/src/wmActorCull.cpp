@@ -13,7 +13,7 @@ static const float wmActorCullRadius[] = {
     200.0f,   // WM_PEACH_CASTLE : Peach's Castle
     100.0f,   // WM_KILLER       : World 6 Bill Blasters
     60.0f,    // WM_KILLERBULLET : Bullet Bill
-    100.0f,   // WM_SINKSHIP     : Unused actor
+    NO_CULL,  // WM_SINKSHIP     : Unused actor [Original: 100.0f]
     80.0f,    // WM_SWITCH       : World 3 switches
     50.0f,    // WM_START        : Start node
     120.0f,   // WM_KINOKO_BASE  : Base actor for Toad Houses (not used directly)
