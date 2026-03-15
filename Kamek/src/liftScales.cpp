@@ -64,6 +64,12 @@ void daLiftScales_c::executeState_Restore() {
         return;
     }
 
+    // Prevent new platforms from being spawned
+    // if the falling ones still exist
+    if (getConnectChild() != 0x0) {
+        return;
+    }
+
     // Reset positions
     mLeftRopeLenCopy = mLeftRopeLen;
 
