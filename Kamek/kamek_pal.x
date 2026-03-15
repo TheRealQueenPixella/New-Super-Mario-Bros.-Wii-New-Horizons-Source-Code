@@ -2638,6 +2638,13 @@ SECTIONS {
 
 	returnFromTitleScreenVersion = 0x80781C90;
 
+	/* Scale Lifts */
+	createScaleStep__14daLiftScales_cFv = 0x80847500;
+	setScalePos__14daLiftScales_cFv = 0x80847640;
+	StateID_HoldStop__14daLiftScales_c = 0x8099B928;
+	getConnectChild__7fBase_cCFv = 0x801626F0;
+	getConnectBrNext__7fBase_cCFv = 0x80162710;
+
 	.text : {
 		FILL (0)
 

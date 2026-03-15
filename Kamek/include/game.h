@@ -1976,6 +1976,9 @@ public:
 	fBase_c *GetChild();
 	fBase_c *GetNext();
 
+	fBase_c *getConnectChild() const;
+	fBase_c *getConnectBrNext() const;
+
 	bool hasUninitialisedProcesses();	// 80162B60
 	fBase_c *findNextUninitialisedProcess();
 

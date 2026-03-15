@@ -1,0 +1,31 @@
+---
+source_files: [../src/liftScales.cpp, ../src/liftScales.S]
+hooks:
+  - name: PatchScaleLiftSize
+    type: patch
+    addr_pal: 0x808468E8
+    data: '386005C8' # 0x5C0 + 0x8
+
+  - name: CheckAllowRestore
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x808469E4
+    target_func: 'CheckAllowRestore'
+
+  - name: RespawnScaleLifts
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x808478B4
+    target_func: 'RespawnScaleLifts'
+
+  - name: ExecuteState_Release
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80847FE8
+    target_func: 'daLiftScales_c::checkStartRestore(void)'
+
+  - name: FinalizeState_Release
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80847FD0
+    target_func: 'daLiftScales_c::finalizeState_Release(void)'

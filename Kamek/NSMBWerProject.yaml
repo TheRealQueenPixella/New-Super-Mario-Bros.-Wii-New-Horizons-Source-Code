@@ -79,3 +79,4 @@ modules:
   - processed/playerColors.yaml
   - processed/characterChange.yaml
   - processed/titleVersion.yaml
+  - processed/liftScales.yaml
