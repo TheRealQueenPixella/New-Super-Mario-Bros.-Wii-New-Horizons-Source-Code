@@ -2645,6 +2645,10 @@ SECTIONS {
 	getConnectChild__7fBase_cCFv = 0x801626F0;
 	getConnectBrNext__7fBase_cCFv = 0x80162710;
 
+	/* Toad Balloon Fix */
+	StateID_DemoStart_SoundStartWait__14daBattleGame_c = 0x80995F50;
+	StateID_Move__15daEnGreenCoin_c = 0x80B156D0;
+
 	.text : {
 		FILL (0)
 

@@ -80,3 +80,4 @@ modules:
   - processed/characterChange.yaml
   - processed/titleVersion.yaml
   - processed/liftScales.yaml
+  - processed/toadBalloonFix.yaml
