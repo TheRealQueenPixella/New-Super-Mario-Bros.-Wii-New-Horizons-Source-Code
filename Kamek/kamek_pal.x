@@ -2649,6 +2649,8 @@ SECTIONS {
 	StateID_DemoStart_SoundStartWait__14daBattleGame_c = 0x80995F50;
 	StateID_Move__15daEnGreenCoin_c = 0x80B156D0;
 
+	exeFrame__10dScStage_c = 0x8042A4E0;
+
 	.text : {
 		FILL (0)
 

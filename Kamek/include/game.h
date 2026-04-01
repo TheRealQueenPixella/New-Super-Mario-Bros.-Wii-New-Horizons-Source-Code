@@ -4277,4 +4277,9 @@ public:
 
 extern "C" void *MapSoundPlayer(void *SoundRelatedClass, int soundID, int unk);
 
+class dScStage_c {
+public:
+    static u32 exeFrame;
+};
+
 #endif

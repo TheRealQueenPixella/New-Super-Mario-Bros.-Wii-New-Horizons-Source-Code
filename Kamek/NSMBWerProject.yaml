@@ -81,3 +81,4 @@ modules:
   - processed/titleVersion.yaml
   - processed/liftScales.yaml
   - processed/toadBalloonFix.yaml
+  - processed/muncher.yaml

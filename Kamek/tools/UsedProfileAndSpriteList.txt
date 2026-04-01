@@ -1,11 +1,12 @@
 -- All Replaced Sprites--
-22 : DUMMY_ACTOR : EN_MAME_KURIBO
-273: DUMMY ACTOR : MANTA_MGR2
+22  : DUMMY_ACTOR     : EN_MAME_KURIBO
+273 : DUMMY ACTOR     : MANTA_MGR2
+342 : EN_BLACK_PAKKUN : Synel's "Better Muncher"
 
 
 
 -- All Replaced Profiles --
-None!
+557: EN_BLACK_PAKKUN
 
 
 
