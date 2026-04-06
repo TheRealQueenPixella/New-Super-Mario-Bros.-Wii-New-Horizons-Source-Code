@@ -4,7 +4,7 @@
 
 #define GAME_NAME "NSMBW: New Horizons"
 #define GAME_VERSION "v1.0.0"
-#define REPORT_TO "github.com/TheRealKingPixel/NSMBW-New-Horizons"
+#define REPORT_TO "github.com/TheRealQueenPixella/NSMBW-New-Horizons"
 
 const bool dsisrFun = false;
 const bool gprFun = false;
