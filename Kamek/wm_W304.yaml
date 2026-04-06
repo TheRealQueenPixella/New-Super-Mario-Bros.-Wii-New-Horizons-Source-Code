@@ -1,0 +1,58 @@
+---
+# Gets rid of all the major 3-4 hardcodes, not just the World Map stuff
+source_files: []
+hooks:
+  - name: NoCreateSwitchBlockAnim
+    type: nop_insn
+    area_pal: 0x800EEA8C
+
+  - name: NoPlaySwitchBlockAnim
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800EF100
+    target_func: 'ReturnNone'
+
+  - name: SwitchBlockAnimAlwaysEnd
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800EF340
+    target_func: 'ReturnTrue'
+
+  - name: NeverSwitchCourseNode
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x808CEFB0
+    target_func: 'ReturnFalse'
+
+  - name: RemoveSwitchCourseOverride
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x808CED60
+    target_func: 'ReturnNone'
+
+  - {name: RemoveSwitchScript1, type: patch, addr_pal: 0x808CE700, data: '480001C0'}
+  - {name: RemoveSwitchScript2, type: patch, addr_pal: 0x808CE744, data: '4800017C'}
+  - {name: RemoveSwitchScript3, type: patch, addr_pal: 0x808CE7D8, data: '480000E8'}
+  - {name: RemoveSwitchScript4, type: patch, addr_pal: 0x808CE820, data: '480000A0'}
+
+  # F001 node is hardcoded to have a 30 frame movement delay in W3b
+  - name: NoSwitchIntersectionDelay
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80908DA0
+    target_func: 'ReturnFalse'
+
+  # Red Switch activation message delay is significantly longer to account for the course re-unlock,
+  # so this patch changes that if you still intend to use the switch for whatever reason
+  - name: SwitchMessageDelay
+    type: patch
+    addr_pal: 0x808FB804
+    data: '38000001' # Orig: 3800003C
+
+  - name: NoCourseCompletionOverride
+    type: nop_insn
+    area_pal: 0x800FBB48
+
+  - name: NoSwitchCourseReplay
+    type: nop_insn
+    area_pal: 0x801025F8

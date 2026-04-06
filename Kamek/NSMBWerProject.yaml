@@ -82,3 +82,4 @@ modules:
   - processed/liftScales.yaml
   - processed/toadBalloonFix.yaml
   - processed/muncher.yaml
+  - processed/wm_W304.yaml
