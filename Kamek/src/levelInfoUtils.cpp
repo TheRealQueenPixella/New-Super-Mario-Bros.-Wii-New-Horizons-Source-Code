@@ -3,6 +3,10 @@
 #include "levelinfo.h"
 #include <levelnumber.h>
 
+extern "C" bool isHomeCourseClear(int world); // 800fcb30
+extern "C" u8 getStartKinokoKind(); // 800fb460
+extern u8 CurrentWorldNumForWorldMap;
+
 static const wchar_t *levelNumbers[] = {
 	//mariofont
 	L"0",
@@ -132,9 +136,6 @@ LevelNumber newGetCourseNum(int worldNum, int levelNum) {
 	return Stage_Invalid;
 }
 
-extern "C" bool isHomeCourseClear(int world); // 800fcb30
-extern "C" u8 getStartKinokoKind(); // 800fb460
-extern u8 CurrentWorldNumForWorldMap;
 u32 getStartingHouseKind() {
 	if (!isHomeCourseClear(CurrentWorldNumForWorldMap)) {
 		return 0;
@@ -160,4 +161,29 @@ int getColorArrayIdx(int world) {
 		default:
 			return 2; // W1, WA, and undefined
 	}
+}
+
+// Overriding this to allow the "You got all Star Coins" messages
+// to support the custom world numbers
+int TagProcessor_c::getWorldNum(void *data) {
+	char param = (char)data;
+	TextBufClear();
+
+	// Get world number and adjust it
+	int worldNo = GameMgrP->numberToInsertInThing[0]; // mLytWorldNo
+	if (param == 1) {
+		worldNo++;
+	} else if (param == 2) {
+		worldNo--;
+	}
+
+	// Get actual display ID
+	int worldIdx = 0;
+	dLevelInfo_c::entry_s *liWorld = dLevelInfo_c::s_info.searchBySlot(worldNo-1, 38);
+	if (liWorld) {
+		worldIdx = liWorld->displayWorld;
+	}
+
+	wcscpy(mTextBuf, getWorldNumber(worldIdx));
+	return wcslen(mTextBuf);
 }

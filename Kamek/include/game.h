@@ -4292,4 +4292,15 @@ public:
 extern void *mFader;
 int mFaderBase_c__getStatus(void *);
 
+extern "C" void WideItoa(int value, wchar_t *buffer, int bufLen, int strLen, int isFullWidth);
+
+class TagProcessor_c {
+public:
+	u32 unk;
+	wchar_t mTextBuf[16];
+
+	void TextBufClear(); // 0x800E6A80
+	int getWorldNum(void *);
+};
+
 #endif

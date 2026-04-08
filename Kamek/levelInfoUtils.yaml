@@ -55,3 +55,13 @@ hooks:
     branch_type: b
     src_addr_pal: 0x80776BB0
     target_func: 'SCMWorldAndLevelNumber'
+
+  - name: TagProcessor_NewGetWorldNum
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800E6BA0
+    target_func: 'TagProcessor_c::getWorldNum(void *)'
+
+  - name: NoCollectionCoinW9Message
+    type: nop_insn
+    area_pal: [0x808FB630, 0x808FB658]

@@ -2661,6 +2661,9 @@ SECTIONS {
 	getMsg__Q27dScript5Res_cFUlUl = 0x800CDD30;
 	m_WarningForbid = 0x8042A5C0;
 
+	TextBufClear__14TagProcessor_cFv = 0x800E6A80;
+	WideItoa = 0x800CDD60;
+
 	.text : {
 		FILL (0)
 
