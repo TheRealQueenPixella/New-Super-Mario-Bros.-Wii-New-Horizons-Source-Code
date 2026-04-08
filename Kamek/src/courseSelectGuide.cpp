@@ -57,10 +57,17 @@ void dCourseSelectGuide_c::levelColorChange(int world) {
 	T_cSelect_00->colour2 = sc_WorldColorArray[color][1];
 }
 
-void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 param) {
-    if (param == 1) {
+void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 pointType) {
+	nw4r::lyt::TextBox *T_levelName_00 = layout.findTextBoxByName("T_levelName_00");
+	nw4r::lyt::Pane *N_zanki_00 = layout.findPaneByName("N_zanki_00");
+
+    if (pointType == 1) {
+		// Key point, don't update the HUD
 		currentLevelNum = 0xfffffffe;
 	} else {
+		N_zanki_00->trans.y = 18.0f; // shifted pos
+		T_levelName_00->SetVisible(true);
+
 		T_cSelect_pic->SetVisible(false);
 		T_cSelect_00->SetVisible(true);
 
@@ -70,6 +77,7 @@ void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 param) {
 		if (level) {
 			const wchar_t *convWorldName;
 			const wchar_t *convLevelName;
+			const char *levelName;
 
 			convWorldName = getWorldNumber(level->displayWorld);
 			convLevelName = getLevelNumber(level->displayLevel);
@@ -85,11 +93,29 @@ void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 param) {
 				T_cSelect_00->SetVisible(true);
 				T_cSelect_00->SetString(convLevelName);
 			}
+
+			// Start Node, don't display level name
+			if (pointType == 2) {
+				T_levelName_00->SetVisible(false);
+				N_zanki_00->trans.y = 42.0f; // retail position
+				return;
+			}
+
+			levelName = dLevelInfo_c::s_info.getNameForLevel(level);
+			wchar_t lbuffer[0x40];
+			for (int i = 0; i < 0x40; i++) {
+				lbuffer[i] = (unsigned short)levelName[i];
+			}
+
+			T_levelName_00->SetString(lbuffer);
 		} else {
 			if(currentLevelNum > 254) { //get a dot
 				T_cSelect_pic->SetVisible(true);
 				T_cSelect_00->SetVisible(false);
 				T_cSelect_pic->SetString(L"6");
+				T_levelName_00->SetVisible(false);
+				N_zanki_00->trans.y = 42.0f; // retail position
+
 				dLevelInfo_c::entry_s *liWorld = dLevelInfo_c::s_info.searchBySlot(currentWorldNum, 38);
                 if (liWorld) {
                     const wchar_t *worldNum;
@@ -103,6 +129,7 @@ void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 param) {
 				T_cSelect_00->SetVisible(true);
 				T_cSelect_00->SetString(L"?");
 				T_worldNum_00->SetString(L"?");
+				T_levelName_00->SetString(L"Unknown Level Name!");
 			}
 		}
 	}
