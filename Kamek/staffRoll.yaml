@@ -1,0 +1,19 @@
+---
+source_files: [../src/staffRoll.cpp, ../src/staffRoll.S]
+hooks:
+  - name: StaffCreditAfterKoopaClear
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x807CF414
+    target_func: 'startStaffCredit(void)'
+
+  - name: CircleWipeForNextGotoBlock
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x800530C0
+    target_func: 'CircleWipeForNextGotoBlock'
+
+  # Removes the special BG/lighting stuff used in the retail credits
+  # (it causes graphical issues for most normal backgrounds)
+  - {name: NoCreditStageSpecialEffect, type: patch, addr_pal: 0x8008934C, data: '38600000'}
+  - {name: NoCreditStageSpecialEffect, type: patch, addr_pal: 0x801165C0, data: '38600000'}

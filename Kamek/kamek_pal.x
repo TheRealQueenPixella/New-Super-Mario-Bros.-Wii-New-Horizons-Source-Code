@@ -2196,6 +2196,7 @@ SECTIONS {
 
 	Global5758 = 0x8042A228;
 	GlobalEnableFlag = 0x80429FDA;
+	mExecStopReq = 0x80429FD8;
 
 	EggControllerClassPtrMaybe = 0x8042A230;
 
@@ -2650,6 +2651,15 @@ SECTIONS {
 	StateID_Move__15daEnGreenCoin_c = 0x80B156D0;
 
 	exeFrame__10dScStage_c = 0x8042A4E0;
+
+	/* Credits stuff */
+	startStaffCredit__7GameMgrFv = 0x800BB8D0;
+	mFaderBase_c__getStatus__FPv = 0x8016DE50;
+	mFader = 0x8042A720;
+	setDemoNextGotoBlock__10daPlBase_cFUcii = 0x80052EF0;
+	getMsgEntry__Q23EGG6MsgResFUlUl = 0x802D7C90;
+	getMsg__Q27dScript5Res_cFUlUl = 0x800CDD30;
+	m_WarningForbid = 0x8042A5C0;
 
 	.text : {
 		FILL (0)

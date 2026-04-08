@@ -148,6 +148,8 @@ class GameMgr {
 		void takeOneStockPowerup(int type); // 800BB380
 		int getStockPowerupCount(int type); // 800BB3D0
 		void resetStockPowerupCount(int type); // 800BB410
+
+		void startStaffCredit(); // 800BB8D0
 };
 
 extern GameMgr *GameMgrP;
@@ -2305,6 +2307,8 @@ class daPlBase_c : public dStageActor_c {
 		void clearFlag(int flag);
 		bool testFlag(int flag);
 
+		void setDemoNextGotoBlock(u8 entranceID, int unk, int faderType); // unk is always 10
+
 		static daPlBase_c *findByID(int id);
 };
 
@@ -3621,6 +3625,7 @@ namespace EGG {
 
 			const wchar_t *findStringForMessageID(int category, int message) const; // 0x802D7B50
 
+			void *getMsgEntry(ulong cat, ulong msg); // 0x802D7C90
 		private:
 			void setBMG(const u8 *ptr); // 802D7B90
 			void setINF(const u8 *ptr); // 802D7BA0
@@ -3647,6 +3652,8 @@ namespace dScript {
 
 			u16 getCharScaleForMessageID(int category, int message) const; // 800CE890
 			u8 getFontIDForMessageID(int category, int message) const; // 800CE8C0
+
+			static wchar_t *getMsg(ulong category, ulong message); // 0x800CDD30
 	};
 }
 class MessageClass {
@@ -4281,5 +4288,8 @@ class dScStage_c {
 public:
     static u32 exeFrame;
 };
+
+extern void *mFader;
+int mFaderBase_c__getStatus(void *);
 
 #endif
