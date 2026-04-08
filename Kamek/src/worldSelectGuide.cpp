@@ -20,6 +20,7 @@ public:
 	f32 titleYPos;								  // 0x234
 
 	void newUpdateWorldNum();
+	void setWorldName();
 };
 
 void dWorldSelectGuide_c::newUpdateWorldNum() {
@@ -43,4 +44,31 @@ void dWorldSelectGuide_c::newUpdateWorldNum() {
 	int color = getColorArrayIdx(worldNum-1);
 	T_worldNum_00->colour1 = sc_WorldColorArray[color][0];
 	T_worldNum_00->colour2 = sc_WorldColorArray[color][1];
+
+	setWorldName();
+}
+
+void dWorldSelectGuide_c::setWorldName() {
+	const char *worldName;
+
+	dLevelInfo_c::entry_s *world = dLevelInfo_c::s_info.searchByDisplayNum(worldNum, 100);
+    if (world) {
+        worldName = dLevelInfo_c::s_info.getNameForLevel(world);
+    } else {
+        worldName = "Unknown World!";
+    }
+
+	// Write the world name
+	nw4r::lyt::TextBox *T_worldName_00 = layout.findTextBoxByName("T_worldName_00");
+	wchar_t wbuffer[0x40];
+	for (int i = 0; i < 0x40; i++) {
+		wbuffer[i] = (unsigned short)worldName[i];
+	}
+
+	T_worldName_00->SetString(wbuffer);
+
+	// Set color
+	int color = getColorArrayIdx(worldNum-1);
+	T_worldName_00->colour1 = sc_WorldColorArray[color][0];
+	T_worldName_00->colour2 = sc_WorldColorArray[color][1];
 }
