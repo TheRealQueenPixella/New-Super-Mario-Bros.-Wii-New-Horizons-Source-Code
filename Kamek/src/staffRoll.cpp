@@ -21,6 +21,10 @@ void startDemoW9() {
 }
 
 void startStaffCredit() {
+	// Since we don't use dScStage_c::setNextScene() here, we set this manually
+	// to allow the course completion stuff to run
+	LastPowerupStoreType = BEAT_LEVEL;
+
     ActivateWipe(WIPE_CIRCLE_s);
     GameMgrP->startStaffCredit();
 }
