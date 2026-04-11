@@ -34,7 +34,7 @@ hooks:
 
 # Ambush Removal
   # - {name: removeW1Goomba, type: nop_insn, area_pal: [0x808dfe70, 0x808dfe74]}
-  # - {name: removeW2Antlion, type: nop_insn, area_pal: 0x808e0130}
+  - {name: removeW2Antlion, type: nop_insn, area_pal: 0x808e0130}
   # - {name: removeW3Bros, type: nop_insn, area_pal: [0x808dfe88, 0x808dfe8c]}
   # - {name: removeW4Fish, type: nop_insn, area_pal: [0x808dfe78, 0x808dfe7c]}
   # - {name: removeW5Pirahna, type: nop_insn, area_pal: [0x808dfe80, 0x808dfe84]}
