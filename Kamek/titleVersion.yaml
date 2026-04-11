@@ -1,8 +1,12 @@
 ---
-source_files: [../src/titleVersion.S]
+source_files: [../src/titleVersion.cpp]
 hooks:
-  - name: TitleScreenVersion
+  - name: TitleVersionHacks
     type: branch_insn
     branch_type: b
-    src_addr_pal: 0x80781C8C
-    target_func: 'TitleScreenVersion'
+    src_addr_pal: 0x80781D00
+    target_func: 'dEventOpeningTitle_c::createLayout(void)'
+
+  - name: ShowVersionPane
+    type: nop_insn
+    area_pal: 0x80781CA8

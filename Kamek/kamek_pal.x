@@ -2637,8 +2637,6 @@ SECTIONS {
 
 	CSMonExecute = 0x8077aca0;
 
-	returnFromTitleScreenVersion = 0x80781C90;
-
 	/* Scale Lifts */
 	createScaleStep__14daLiftScales_cFv = 0x80847500;
 	setScalePos__14daLiftScales_cFv = 0x80847640;
@@ -2663,6 +2661,7 @@ SECTIONS {
 
 	TextBufClear__14TagProcessor_cFv = 0x800E6A80;
 	WideItoa = 0x800CDD60;
+	mbstowcs = 0x802DF0EC;
 
 	.text : {
 		FILL (0)

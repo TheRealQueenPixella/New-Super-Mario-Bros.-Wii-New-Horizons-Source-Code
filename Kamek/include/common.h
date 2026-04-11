@@ -145,5 +145,6 @@ namespace nw4r { namespace db {
 	void* sException();
 }}
 
+extern "C" int mbstowcs(wchar_t *, const char *, u8);
 
 #endif

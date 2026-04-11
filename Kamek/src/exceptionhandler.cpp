@@ -1,9 +1,10 @@
 #include "game.h"
 #include "fileload.h"
 #include "nsmbwVer.h"
+#include <utils.h>
 
 #define GAME_NAME "NSMBW: New Horizons"
-#define GAME_VERSION "v1.0.0"
+// See utils.h for game version string
 #define REPORT_TO "github.com/TheRealQueenPixella/NSMBW-New-Horizons"
 
 const bool dsisrFun = false;
@@ -79,7 +80,7 @@ char *GetErrorDescription(u16 OSError)
 void PrintContext(u16 OSError, void *_osContext, u32 _dsisr, u32 _dar)
 {
     OSContext *osContext = (OSContext *)_osContext;
-    nw4r::db::Exception_Printf_("" GAME_NAME " " GAME_VERSION " has crashed - %s\n\nPlease report an issue on GitHub at:\n" REPORT_TO "\n\n[%s]\n", GetErrorDescription(OSError), GetRegionAndVersion());
+    nw4r::db::Exception_Printf_("" GAME_NAME " %s has crashed - %s\n\nPlease report an issue on GitHub at:\n" REPORT_TO "\n\n[%s]\n", GAME_VERSION_NUM, GetErrorDescription(OSError), GetRegionAndVersion());
     nw4r::db::Exception_Printf_("SRR0: %08X", osContext->srr[0]);
     if (osContext->srr[0] >= dlcode) {
         nw4r::db::Exception_Printf_(" | %08X NewerASM", osContext->srr[0] - dlcode);
