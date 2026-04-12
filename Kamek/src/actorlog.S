@@ -7,7 +7,7 @@
 .extern profileNames
 .extern customProfileNames
 
-#if defined(REGION_K) || defined(REGION_W) || defined(REGION_C)
+#if defined(REGION_KW) || defined(REGION_C)
 	#define ORIGINAL_PROFILES 752
 #else
 	#define ORIGINAL_PROFILES 750

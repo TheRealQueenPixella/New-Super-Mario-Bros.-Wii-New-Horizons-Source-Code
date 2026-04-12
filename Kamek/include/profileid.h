@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(REGION_K) || defined(REGION_W)
+#if defined(REGION_KW)
     #define PROFCNT 752
 #else
     #define PROFCNT 750

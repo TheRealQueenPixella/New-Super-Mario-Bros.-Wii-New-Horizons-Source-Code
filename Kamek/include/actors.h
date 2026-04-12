@@ -710,7 +710,7 @@ enum Actors {
 	EVENT_OPENING_TITLE,
 	SELECT_PLAYER,
 	MULTI_COURSE_SELECT,
-	#if defined(REGION_K) || defined(REGION_W) // The Korean and Taiwanese versions have two extra profiles here. Who thought this was a good idea?
+	#if defined(REGION_KW) // The Korean and Taiwanese versions have two extra profiles here. Who thought this was a good idea?
 	MULTI_COURSE_SELECT_TOURNAMENT,
 	MULTI_COURSE_SELECT_TOURNAMENT_BUTTON,
 	#endif

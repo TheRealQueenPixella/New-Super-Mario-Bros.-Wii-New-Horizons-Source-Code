@@ -120,11 +120,11 @@ hooks:
     area_pal: [0x808CE56C, 0x808CE57C]
 
 # Fix World Select anim types (they're completely hardcoded)
-  - {name: WS_FixW1, type: patch, addr_pal: 0x809831CC, data: '808D3DDC'} # use CLR
-  - {name: WS_FixW8, type: patch, addr_pal: 0x809831E8, data: '808D3D7C'} # use SRT
+  #- {name: WS_FixW1, type: patch, addr_pal: 0x809831CC, data: '808D3DDC'} # use CLR
+  #- {name: WS_FixW8, type: patch, addr_pal: 0x809831E8, data: '808D3D7C'} # use SRT
 
-  - name: WS_FixAnmProc
-    type: branch_insn
-    branch_type: b
-    src_addr_pal: 0x808D3740
-    target_func: 'daWmIsland_c::execute(void)'
+  #- name: WS_FixAnmProc
+  #  type: branch_insn
+  #  branch_type: b
+  #  src_addr_pal: 0x808D3740
+  #  target_func: 'daWmIsland_c::execute(void)'
