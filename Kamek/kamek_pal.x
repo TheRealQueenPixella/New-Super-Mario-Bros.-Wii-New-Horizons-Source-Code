@@ -2663,6 +2663,10 @@ SECTIONS {
 	WideItoa = 0x800CDD60;
 	mbstowcs = 0x802DF0EC;
 
+	/* World Select anims */
+	WM_ISLAND_anmSrtW2 = 0x808D3D7C;
+	WM_ISLAND_anmClrW8 = 0x808D3DDC;
+
 	.text : {
 		FILL (0)
 

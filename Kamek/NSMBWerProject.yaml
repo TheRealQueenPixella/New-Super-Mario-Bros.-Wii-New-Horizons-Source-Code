@@ -84,3 +84,4 @@ modules:
   - processed/muncher.yaml
   - processed/wm_W304.yaml
   - processed/staffRoll.yaml
+  - processed/wmIsland.yaml

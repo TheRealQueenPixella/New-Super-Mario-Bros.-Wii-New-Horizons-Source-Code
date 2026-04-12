@@ -1,0 +1,11 @@
+---
+source_files: [../src/wmIsland.cpp, ../src/wmIsland.S]
+hooks:
+  - {name: WS_FixW1, type: add_func_pointer, src_addr_pal: 0x809831CC, target_func: 'NewAnmW1'} # use CLR
+  - {name: WS_FixW8, type: add_func_pointer, src_addr_pal: 0x809831E8, target_func: 'NewAnmW8'} # use SRT
+
+  - name: WS_FixAnmProc
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x808D3740
+    target_func: 'daWmIsland_c::execute(void)'
