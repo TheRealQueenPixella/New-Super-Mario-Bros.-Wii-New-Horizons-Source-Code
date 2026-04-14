@@ -159,7 +159,6 @@ void daStaffRoll_c::chkSkip() {
 		if (save->worlds_available[8] != 0) {
 			ActivateWipe(WIPE_CIRCLE_s);
 			DoSceneChange(WORLD_MAP, CreateBootParam(), false);
-			MapSoundPlayer(SoundRelatedClass, SE_SYS_DIALOGUE_OUT, 1);
 		}
 	}
 }
@@ -239,7 +238,6 @@ void daStaffRoll_c::endState_DispWait() {
 
 void daStaffRoll_c::beginState_OpenAnime() {
 	layout.enableNonLoopAnim(IN_WINDOW, false);
-	MapSoundPlayer(SoundRelatedClass, SE_SYS_DIALOGUE_IN, 1);
 	visible = true;
 }
 void daStaffRoll_c::executeState_OpenAnime() {
@@ -256,9 +254,6 @@ void daStaffRoll_c::endState_OpenAnime() {
 void daStaffRoll_c::beginState_TextAnime() { }
 void daStaffRoll_c::executeState_TextAnime() {
 	if (!layout.isAnimOn(IN_TITLE) || !layout.isAnimOn(IN_NAMES)) {
-		if (!isFinalCard) {
-			MapSoundPlayer(SoundRelatedClass, SE_SYS_KO_DIALOGUE_IN, 1);
-		}
 		state.setState(&StateID_Wait);
 	}
 }
@@ -271,7 +266,6 @@ void daStaffRoll_c::endState_Wait() { }
 
 
 void daStaffRoll_c::beginState_ExitAnime() {
-	MapSoundPlayer(SoundRelatedClass, SE_SYS_DIALOGUE_OUT_AUTO, 1);
 	layout.enableNonLoopAnim(OUT_WINDOW);
 }
 void daStaffRoll_c::executeState_ExitAnime() {
