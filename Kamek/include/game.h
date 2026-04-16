@@ -4303,4 +4303,48 @@ public:
 	int getWorldNum(void *);
 };
 
+namespace EGG {
+	class Viewport {
+	public:
+		u8 unk[0x1C];
+
+		Viewport();
+
+		void setLUandWH(float, float, float, float);
+		void setG3DCamera(nw4r::g3d::Camera &);
+	};
+
+	class LightTextureManager {
+	public:
+		void setBinary(void *res);
+	};
+
+	class LightManager {
+	public:
+		u8 unk[0x14];
+		EGG::LightTextureManager *lightTexMgr;
+
+		void setBinary(void *res);
+		void LoadScnLightInner(void *res, float, short, ulong);
+	};
+
+	class FogManager {
+	public:
+		void setBinary(void *res);
+	};
+};
+
+namespace m3d {
+	EGG::LightManager *getLightMgr(int);
+	EGG::FogManager *getFogMgr(int);
+};
+
+class mVideo {
+public:
+	GXRModeObj *renderMode;
+
+	static mVideo *m_video;
+	static float l_AspectRatio;
+};
+
 #endif

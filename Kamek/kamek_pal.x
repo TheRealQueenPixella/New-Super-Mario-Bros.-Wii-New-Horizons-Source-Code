@@ -2667,6 +2667,23 @@ SECTIONS {
 	WM_ISLAND_anmSrtW2 = 0x808D3D7C;
 	WM_ISLAND_anmClrW8 = 0x808D3DDC;
 
+	/* File Select BG */
+	CreateGameSetupLayouts__FPv = 0x80917C80;
+	scnLeaf_setPriorityDraw = 0x8016A3E0;
+	getLightMgr__3m3dFi = 0x80164CB0;
+	getFogMgr__3m3dFi = 0x80164CC0;
+	setBinary__Q23EGG12LightManagerFPv = 0x809198F0;
+	setBinary__Q23EGG19LightTextureManagerFPv = 0x809198E0;
+	setBinary__Q23EGG10FogManagerFPv = 0x80919900;
+	LoadScnLightInner__Q23EGG12LightManagerFPvfsUl = 0x802C8B30;
+	GetResAnmScn__Q34nw4r3g3d7ResFileCFPCc = 0x8023A420;
+	__ct__Q23EGG8ViewportFv = 0x802C0220;
+	setLUandWH__Q23EGG8ViewportFffff = 0x802C02E0;
+	setG3DCamera__Q23EGG8ViewportFRQ34nw4r3g3d6Camera = 0x802C0440;
+	m_video__6mVideo = 0x8042A760;
+	l_AspectRatio__6mVideo = 0x80428A60;
+	setOrthoOntoCamera__Q23EGG12ProjectOrthoFRQ34nw4r3g3d6Camera = 0x802C0110;
+
 	.text : {
 		FILL (0)
 

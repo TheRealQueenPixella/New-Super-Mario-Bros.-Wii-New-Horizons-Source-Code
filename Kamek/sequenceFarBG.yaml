@@ -1,0 +1,46 @@
+---
+source_files: [../src/gameSetup.cpp, ../src/sequenceFarBG.cpp]
+hooks:
+  - name: GameSetup_ClassExpand
+    type: patch
+    addr_pal: 0x80917968
+    data: '3860021C' # 0x210 + 0xC
+
+  - name: GameSetup_SetRes
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80917BE0
+    target_func: 'GameSetup_SetRes(void *)'
+
+  - name: GameSetup_CreateBases
+    type: add_func_pointer
+    src_addr_pal: 0x8098B10C
+    target_func: 'GameSetup_CreateBases(void *)'
+
+  - name: GameSetup_Painter
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80917990
+    target_func: 'GameSetup_Painter(void)'
+  
+  - name: GameSetup_onDelete
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80919270
+    target_func: 'dScGameSetup_c::onDelete(void)'
+
+  - name: GameSetup_InitScene
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80919560
+    target_func: 'dScGameSetup_c::initScene(void)'
+
+  - name: GameSetup_CalcCameras
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x809195D0
+    target_func: 'dScGameSetup_c::calcCameras(void)'
+
+  # - {name: NoDrawSequenceBG, type: nop_insn, area_pal: 0x807ada2c}
+  - {name: NoCreateSequenceBG, type: nop_insn, area_pal: [0x80917D58, 0x80917D6C]}
+  - {name: NoCheckSequenceBG,  type: nop_insn, area_pal: [0x80917E48, 0x80917E50]}

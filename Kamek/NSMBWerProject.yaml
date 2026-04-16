@@ -85,3 +85,4 @@ modules:
   - processed/wm_W304.yaml
   - processed/staffRoll.yaml
   - processed/wmIsland.yaml
+  - processed/sequenceFarBG.yaml

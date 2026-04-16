@@ -43,6 +43,7 @@ namespace nw4r {
 		class ResAnmClr { public: void* data; ResAnmClr(void *p = NULL) { data = p; } };
 		class ResAnmTexPat { public: void* data; ResAnmTexPat(void *p = NULL) { data = p; } };
 		class ResAnmTexSrt { public: void* data; ResAnmTexSrt(void *p = NULL) { data = p; } };
+		class ResAnmScn { public: void* data; ResAnmScn(void *p = NULL) { data = p; } };
 
 		class ResFile {
 			public:
@@ -61,6 +62,7 @@ namespace nw4r {
 				void *GetResAnmClr(const char *str) const;
 				void *GetResAnmTexPat(const char *str) const;
 				void *GetResAnmTexSrt(const char *str) const;
+				void *GetResAnmScn(const char *str) const;
 
 				bool Bind(ResFile file);
 		};

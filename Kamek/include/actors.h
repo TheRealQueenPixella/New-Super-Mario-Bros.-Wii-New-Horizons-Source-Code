@@ -820,6 +820,7 @@ enum Actors {
 	WM_MANAGER, //803
 	AC_NEWER_ENDING_MAIN, //804
 	AC_STAFF_ROLL, //805
+	AC_SEQUENCE_FAR_BG, // 806
 };
 
 struct Actor {
