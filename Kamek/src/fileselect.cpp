@@ -39,22 +39,22 @@ extern "C" void DateFile_dispCurrentWorldNum(dBase_c *self, nw4r::lyt::TextBox *
         default: // Mario
             P_iconM_00->SetVisible(true);
             restNum = save->player_lives[0];
-            restColor = marioColor;
+            restColor = sc_plyColorArray[0];
             break;
         case 1: // Luigi
             P_iconL_00->SetVisible(true);
             restNum = save->player_lives[1];
-            restColor = luigiColor;
+            restColor = sc_plyColorArray[1];
             break;
         case 2: // Blue Toad
             P_iconB_00->SetVisible(true);
             restNum = save->player_lives[2];
-            restColor = kinoBColor;
+            restColor = sc_plyColorArray[2];
             break;
         case 3: // Yellow Toad
             P_iconY_00->SetVisible(true);
             restNum = save->player_lives[3];
-            restColor = kinoYColor;
+            restColor = sc_plyColorArray[3];
             break;
     }
 

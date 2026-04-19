@@ -74,11 +74,6 @@ extern int Player_Flags[4];
 extern int Player_Lives[4];
 extern int Player_Coins[4];
 
-static const GXColor marioColor = {217, 35,  35,  255};
-static const GXColor luigiColor = {64,  184, 51,  255};
-static const GXColor kinoBColor = {74,  91,  255, 255};
-static const GXColor kinoYColor = {255, 198, 45,  255};
-
 struct StartLevelInfo {
 	int maybeUnused;
 	unsigned char replayTypeMaybe; // 0x04

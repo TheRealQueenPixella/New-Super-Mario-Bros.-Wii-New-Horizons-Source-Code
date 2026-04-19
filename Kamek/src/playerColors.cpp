@@ -1,4 +1,5 @@
 #include <game.h>
+#include <utils.h>
 
 class dCharacterChangeSelectContents_c : public dBase_c {
 public:
@@ -36,24 +37,24 @@ static const int fieldLength = 2;
 
 void dCharacterChangeSelectContents_c::setRestMario(int funcRun) {
 	if (funcRun == 0) {
-		T_kakeru_00->colour2 = marioColor;
-		T_zanki_01->colour2 = marioColor;
+		T_kakeru_00->colour2 = sc_plyColorArray[0];
+		T_zanki_01->colour2 = sc_plyColorArray[0];
 	} else {
-		T_kakeru_01->colour2 = marioColor;
-		T_zanki_00->colour2 = marioColor;
+		T_kakeru_01->colour2 = sc_plyColorArray[0];
+		T_zanki_00->colour2 = sc_plyColorArray[0];
 	}
 }
 
 void dCharacterChangeSelectContents_c::setRestLuigi(int funcRun) {
 	if (funcRun == 0) {
 		WriteNumberToTextBox(&luigiLives, &fieldLength, T_zanki_01, false);
-		T_kakeru_00->colour2 = luigiColor;
-		T_zanki_01->colour2 = luigiColor;
+		T_kakeru_00->colour2 = sc_plyColorArray[1];
+		T_zanki_01->colour2 = sc_plyColorArray[1];
 		P_lui_00->SetVisible(true);
 	} else {
 		WriteNumberToTextBox(&luigiLives, &fieldLength, T_zanki_00, false);
-		T_kakeru_01->colour2 = luigiColor;
-		T_zanki_00->colour2 = luigiColor;
+		T_kakeru_01->colour2 = sc_plyColorArray[1];
+		T_zanki_00->colour2 = sc_plyColorArray[1];
 		P_lui_01->SetVisible(true);
 	}
 }
@@ -61,13 +62,13 @@ void dCharacterChangeSelectContents_c::setRestLuigi(int funcRun) {
 void dCharacterChangeSelectContents_c::setRestKinoY(int funcRun) {
 	if (funcRun == 0) {
 		WriteNumberToTextBox(&yellowToadLives, &fieldLength, T_zanki_01, false);
-		T_kakeru_00->colour2 = kinoYColor;
-		T_zanki_01->colour2 = kinoYColor;
+		T_kakeru_00->colour2 = sc_plyColorArray[3];
+		T_zanki_01->colour2 = sc_plyColorArray[3];
 		P_kinoY_00->SetVisible(true);
 	} else {
 		WriteNumberToTextBox(&yellowToadLives, &fieldLength, T_zanki_00, false);
-		T_kakeru_01->colour2 = kinoYColor;
-		T_zanki_00->colour2 = kinoYColor;
+		T_kakeru_01->colour2 = sc_plyColorArray[3];
+		T_zanki_00->colour2 = sc_plyColorArray[3];
 		P_kinoY_01->SetVisible(true);
 	}
 }
@@ -75,13 +76,13 @@ void dCharacterChangeSelectContents_c::setRestKinoY(int funcRun) {
 void dCharacterChangeSelectContents_c::setRestKinoB(int funcRun) {
 	if (funcRun == 0) {
 		WriteNumberToTextBox(&blueToadLives, &fieldLength, T_zanki_01, false);
-		T_kakeru_00->colour2 = kinoBColor;
-		T_zanki_01->colour2 = kinoBColor;
+		T_kakeru_00->colour2 = sc_plyColorArray[2];
+		T_zanki_01->colour2 = sc_plyColorArray[2];
 		P_kinoB_00->SetVisible(true);
 	} else {
 		WriteNumberToTextBox(&blueToadLives, &fieldLength, T_zanki_00, false);
-		T_kakeru_01->colour2 = kinoBColor;
-		T_zanki_00->colour2 = kinoBColor;
+		T_kakeru_01->colour2 = sc_plyColorArray[2];
+		T_zanki_00->colour2 = sc_plyColorArray[2];
 		P_kinoB_01->SetVisible(true);
 	}
 }

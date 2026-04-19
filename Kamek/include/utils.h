@@ -27,3 +27,10 @@ inline wchar_t *getWideVersion() {
     mbstowcs(string, GAME_VERSION_NUM, 0x10);
     return string;
 }
+
+static GXColor sc_plyColorArray[4] = {
+    {0xD9, 0x23, 0x23, 0xFF}, // Mario
+    {0x40, 0xB8, 0x33, 0xFF}, // Luigi
+    {0x4A, 0x5B, 0xFF, 0xFF}, // Blue Toad
+    {0xFF, 0xC6, 0x2D, 0xFF}  // Yellow Toad
+};
