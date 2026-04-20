@@ -55,10 +55,8 @@ int DoNames(int state) {
 			}
 
 			wchar_t wbuffer[0x40], lbuffer[0x40];
-			for (int i = 0; i < 0x40; i++) {
-				wbuffer[i] = (unsigned short)worldname[i];
-				lbuffer[i] = (unsigned short)levelname[i];
-			}
+			mbstowcs(wbuffer, worldname, 0x40);
+			mbstowcs(lbuffer, levelname, 0x40);
 
 			worldObj->SetString(wbuffer);
 			levelObj->SetString(lbuffer);

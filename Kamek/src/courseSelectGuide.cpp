@@ -103,13 +103,11 @@ void dCourseSelectGuide_c::newUpdateLevelDisplay(u32 pointType) {
 
 			levelName = dLevelInfo_c::s_info.getNameForLevel(level);
 			wchar_t lbuffer[0x40];
-			for (int i = 0; i < 0x40; i++) {
-				lbuffer[i] = (unsigned short)levelName[i];
-			}
+			mbstowcs(lbuffer, levelName, 0x40);
 
 			T_levelName_00->SetString(lbuffer);
 		} else {
-			if(currentLevelNum > 254) { //get a dot
+			if (currentLevelNum > 254) { //get a dot
 				T_cSelect_pic->SetVisible(true);
 				T_cSelect_00->SetVisible(false);
 				T_cSelect_pic->SetString(L"6");

@@ -135,7 +135,7 @@ void Pausewindow_c::newLoadLevelName() {
 
 		// Stupid fix for 8-Airship having slightly too long of a name,
 		// and my dynamic resizer code doesn't work anymore
-		if ((wnum == 7) && (lnum == 37)) {
+		if ((wnum == 7) && (lnum == Stage_Doomship)) {
 			T_levelName_00->size.x += 16.0f;
 
 			layout.findPictureByName("P_bg_00")->size.x += 32.0f;
@@ -153,9 +153,7 @@ void Pausewindow_c::newLoadLevelName() {
 	}
 
 	wchar_t lbuffer[0x40];
-	for (int i = 0; i < 0x40; i++) {
-		lbuffer[i] = (unsigned short)levelName[i];
-	}
+	mbstowcs(lbuffer, levelName, 0x40);
 
 	T_levelName_00->SetString(lbuffer);
 }

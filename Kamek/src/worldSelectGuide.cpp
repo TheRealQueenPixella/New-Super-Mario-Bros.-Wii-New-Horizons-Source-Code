@@ -61,9 +61,7 @@ void dWorldSelectGuide_c::setWorldName() {
 	// Write the world name
 	nw4r::lyt::TextBox *T_worldName_00 = layout.findTextBoxByName("T_worldName_00");
 	wchar_t wbuffer[0x40];
-	for (int i = 0; i < 0x40; i++) {
-		wbuffer[i] = (unsigned short)worldName[i];
-	}
+	mbstowcs(wbuffer, worldName, 0x40);
 
 	T_worldName_00->SetString(wbuffer);
 

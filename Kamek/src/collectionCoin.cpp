@@ -25,9 +25,7 @@ void SCMWorldName(int param_1) {
 	}
 
     wchar_t wbuffer[0x40];
-	for (int i = 0; i < 0x40; i++) {
-		wbuffer[i] = (unsigned short)worldname[i];
-	}
+	mbstowcs(wbuffer, worldname, 0x40);
 
 	TextBox1->SetString(wbuffer);
     TextBox2->SetString(wbuffer);
@@ -51,9 +49,7 @@ void SCMWorldName2(int param_1, int param_2) {
 	}
 
     wchar_t wbuffer[0x40];
-	for (int i = 0; i < 0x40; i++) {
-		wbuffer[i] = (unsigned short)worldname[i];
-	}
+	mbstowcs(wbuffer, worldname, 0x40);
 
 	TextBox->SetString(wbuffer);
 	SCM_WorldColorChange(CurrentWorld, TextBox);
