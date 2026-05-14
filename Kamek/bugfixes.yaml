@@ -344,3 +344,8 @@ hooks:
     branch_type: bl
     src_addr_pal: 0x800E3A60
     target_func: 'TimerFor0Cannon'
+
+  - name: FrontGhostFog
+    type: patch
+    addr_pal: 0x800EB260
+    data: '4080000C'
