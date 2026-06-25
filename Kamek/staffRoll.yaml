@@ -1,11 +1,19 @@
 ---
 source_files: [../src/staffRoll.cpp, ../src/staffRoll.S]
 hooks:
-  - name: StaffCreditAfterKoopaClear
-    type: branch_insn
-    branch_type: bl
-    src_addr_pal: 0x807CF414
-    target_func: 'startStaffCredit(void)'
+  - name: StupidRedirect
+    type: add_func_pointer
+    src_addr_pal: 0x8098CD18
+    target_func: 'dScRedirect_c::build(void)'
+
+  # Fixes dScMovie_c references, since we override that
+  - name: FixMovieRefs
+    type: patch
+    addr_pal: 0x80124DE0
+    data: '48000028' # branch +0x28
+
+  # Remove fader when calling startStaffCredit(), so the redirect transition time takes less
+  - {name: NoStaffCreditFader, type: patch, addr_pal: 0x800BB8F0, data: '38600006'}
 
   - name: CircleWipeForNextGotoBlock
     type: branch_insn

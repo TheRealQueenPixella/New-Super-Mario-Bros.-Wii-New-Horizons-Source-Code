@@ -20,16 +20,30 @@ void startDemoW9() {
     }
 }
 
-void startStaffCredit() {
-	// Since we don't use dScStage_c::setNextScene() here, we set this manually
-	// to allow the course completion stuff to run
-	LastPowerupStoreType = BEAT_LEVEL;
+// Shitty redirect scene to fix issues with 4-Castle completion
+class dScRedirect_c : public dScene_c {
+public:
+	int onCreate();
+	int onExecute();
 
-    ActivateWipe(WIPE_CIRCLE_s);
-    GameMgrP->startStaffCredit();
+	static dScRedirect_c *build();
+};
+
+dScRedirect_c *dScRedirect_c::build() {
+	void *buffer = AllocFromGameHeap1(sizeof(dScRedirect_c));
+	return new(buffer) dScRedirect_c; 
 }
 
+int dScRedirect_c::onCreate() {
+	return true;
+}
 
+int dScRedirect_c::onExecute() {
+	GameMgrP->startStaffCredit();
+	return true;
+}
+
+// And now for the actual credits...
 const SpriteData StaffRollSpriteData = {ProfileId::AC_STAFF_ROLL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 Profile StaffRollProfile(&daStaffRoll_c::build, SpriteId::AC_STAFF_ROLL, &StaffRollSpriteData, ProfileId::AC_ENDING_MAIN, ProfileId::AC_ENDING_MAIN, "AC_STAFF_ROLL", 0);
 
