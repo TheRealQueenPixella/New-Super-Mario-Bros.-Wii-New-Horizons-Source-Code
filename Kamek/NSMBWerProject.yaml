@@ -86,3 +86,4 @@ modules:
   - processed/staffRoll.yaml
   - processed/wmIsland.yaml
   - processed/sequenceFarBG.yaml
+  - processed/finalCastle.yaml
