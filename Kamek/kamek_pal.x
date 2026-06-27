@@ -2684,6 +2684,33 @@ SECTIONS {
 	l_AspectRatio__6mVideo = 0x80428A60;
 	setOrthoOntoCamera__Q23EGG12ProjectOrthoFRQ34nw4r3g3d6Camera = 0x802C0110;
 
+	/* Final Castle fixes */
+	BossCutsceneFlag = 0x8042A458;
+
+	continueFromWaterWaveSetup = 0x800EBE4C;
+	afterWaterWaveSetup = 0x800EBE28;
+
+	continueFromWaterDraw = 0x800EACB4;
+	afterWaterDraw = 0x800EAC98;
+
+	do2CastleCheck = 0x8000D058;
+	drawTheWaves = 0x8000D078;
+
+	continueCheckWater = 0x80075364;
+	returnFromCheckWater = 0x80075304;
+
+	waterDrawContinue = 0x800EACB8;
+	waterDrawReturn = 0x800EAE80;
+
+	continueWaterSetup = 0x800EBDF8;
+	waterSetupDo2CastleCheck = 0x800EBDDC;
+
+	setWaveThing = 0x800EBE40;
+	dontSetWaveThing = 0x800EBE4C;
+
+	setWaveEffect = 0x8013E1C4;
+	noSetWaveEffect = 0x8013E1F0;
+
 	.text : {
 		FILL (0)
 

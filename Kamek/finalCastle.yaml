@@ -1,9 +1,51 @@
 ---
 # Hacks to apply some 08-24 hardcodes to 09-08 as well
-source_files: [../src/finalCastle.cpp]
+source_files: [../src/finalCastle.cpp, ../src/finalCastle.S]
 hooks:
   - name: FixTilesetEffects
     type: branch_insn
     branch_type: b
     src_addr_pal: 0x80087ED0
     target_func: 'dBgTexMng_c::SetKoopaStageFlag(void)'
+
+  - name: ResetCutsceneFlag
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80926100
+    target_func: 'ResetKamekCutsceneFlag(void)'
+
+  - name: WaterWavesDraw
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x8000D038
+    target_func: 'WaterWavesDraw'
+
+  - name: CheckWater
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800752E4
+    target_func: 'CheckWater'
+
+  - name: WaterDraw
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800EACB4
+    target_func: 'WaterDraw'
+
+  - name: WaterSetup
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800EBDD8
+    target_func: 'WaterSetup'
+
+  - name: SetWaveThing
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x800EBE20
+    target_func: 'SetWaveThing'
+
+  - name: WaveEffectOverride
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x8013E1EC
+    target_func: 'WaveEffectOverride'
