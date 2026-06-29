@@ -60,20 +60,20 @@ CheckWater:
 
     lbz r0, 0x120E(r6)
     cmplwi r0, 0x3
-    beq _continueCheckWater
+    beq _returnFromCheckWater
 
 cw_not8Castle:
     lbz r0, 0x120C(r6)
     cmplwi r0, 0x8
-    bne _returnFromCheckWater
+    bne _continueCheckWater
 
     lbz r0, 0x120D(r6)
     cmplwi r0, 0x7
-    bne _returnFromCheckWater
+    bne _continueCheckWater
 
     lbz r0, 0x120E(r6)
     cmplwi r0, 0x3
-    beq _continueCheckWater
+    bne _continueCheckWater
 
 _returnFromCheckWater:
     b returnFromCheckWater
