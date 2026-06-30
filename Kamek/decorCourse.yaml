@@ -1,0 +1,31 @@
+---
+source_files: [../src/decorCourse.cpp, ../src/decorCourse.S]
+hooks:
+  - name: CheckDecorCourse
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x808E1A28
+    target_func: 'checkInDecorList(void *, char *)'
+
+  - name: SetDecorCourseFlag
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x808E1A58
+    target_func: 'createCourse'
+
+  # Make the function call below always happen
+  - name: RemoveCheck
+    type: nop_insn
+    area_pal: [0x808CE56C, 0x808CE574]
+
+  - name: SetDecorCourseMode
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x808CED00
+    target_func: 'daWmCourse_c::setDecorCourse(void)'
+
+  - name: LoadDecorCourseModel
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x808CE258
+    target_func: 'CobCourseAltModel'

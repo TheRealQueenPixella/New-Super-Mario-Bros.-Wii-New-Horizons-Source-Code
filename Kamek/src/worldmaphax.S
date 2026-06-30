@@ -62,6 +62,13 @@ useNewFileListR31:
 	ori r31, r31, newAlwaysLoadedList@l
 	blr
 
+.extern createCourse
+.global DecorCourseOverride
+DecorCourseOverride:
+	# Reimplementing stuff here since r31 (node name) gets overwritten
+	
+	b createCourse
+
 .data
 cobSunkenShip: .string "cobSunkenShip"
 .align 4

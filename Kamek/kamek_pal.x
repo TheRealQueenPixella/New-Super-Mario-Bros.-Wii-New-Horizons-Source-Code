@@ -2711,6 +2711,10 @@ SECTIONS {
 	setWaveEffect = 0x8013E1C4;
 	noSetWaveEffect = 0x8013E1F0;
 
+	/* Decor Course Override */
+	dWmConnect_c_GetCourseNoFromName = 0x800F32F0;
+	setAnm__12daWmCourse_cFiff = 0x808CE8E0;
+
 	.text : {
 		FILL (0)
 

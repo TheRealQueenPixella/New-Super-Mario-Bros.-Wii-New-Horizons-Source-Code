@@ -68,7 +68,7 @@ modules:
   - processed/singAlong.yaml
   - processed/pumpkinGoomba.yaml
   # - processed/pengi.yaml
-  # - processed/actorlog.yaml
+  - processed/actorlog.yaml
   - processed/exceptionHandler.yaml
   - processed/actors.yaml
   - processed/nsmbwUpdated.yaml
@@ -87,3 +87,4 @@ modules:
   - processed/wmIsland.yaml
   - processed/sequenceFarBG.yaml
   - processed/finalCastle.yaml
+  - processed/decorCourse.yaml
