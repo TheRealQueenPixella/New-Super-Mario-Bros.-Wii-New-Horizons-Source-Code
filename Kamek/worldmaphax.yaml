@@ -114,3 +114,13 @@ hooks:
     type: patch
     addr_pal: 0x808df15c
     data: '3c800004'
+
+  - name: DisableCastleMsg
+    type: patch
+    addr_pal: 0x808FC98C
+    data: '38000001'
+
+  - name: DisableToadHouseMsg
+    type: patch
+    addr_pal: 0x808FC368
+    data: '38000001'
