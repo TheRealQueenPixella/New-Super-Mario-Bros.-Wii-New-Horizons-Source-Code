@@ -88,3 +88,5 @@ modules:
   - processed/sequenceFarBG.yaml
   - processed/finalCastle.yaml
   - processed/decorCourse.yaml
+  - processed/grrrol.yaml
+  - processed/grrrolSpawner.yaml

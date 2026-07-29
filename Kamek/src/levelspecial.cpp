@@ -291,3 +291,6 @@ int LevelSpecial::onExecute() {
 	this->lastEvState = newEvState;
 	return true;
 }
+
+// Average Newer L
+#undef time

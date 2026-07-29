@@ -35,6 +35,8 @@ float cos(float x);
 float sin(float x);
 float ceil(float x);
 float floor(float x);
+float pow(float x, float y);
+float sqrt(float x) { return pow(x, 0.5f); }
 }
 enum Direction {
 	RIGHT = 0,
@@ -65,6 +67,8 @@ void *DVD_GetFile(void *dvdclass2, const char *arc, const char *file, u32 *lengt
 
 int MakeRandomNumber(int count);
 int MakeRandomNumberForTiles(int count);
+int RandInt(int min, int max) { return MakeRandomNumber(max - min) + min; }
+float RandFloat(float min, float max) { return ((float)MakeRandomNumber(10000) / 10000.0f) * (max - min) + min; }
 
 
 extern int Player_Active[4];
@@ -4279,9 +4283,50 @@ public:
 
 extern "C" void *MapSoundPlayer(void *SoundRelatedClass, int soundID, int unk);
 
-class dScStage_c {
+#include <timekeeper.h>
+
+class dScStage_c: public dScene_c {
 public:
+    u32 runningFrameCount_probably;
+    FunctionChain chain;
+    Stage80 quake;
+    PauseManager_c pause_manager;
+    dActorMng_c actor_mng;
+    dEnemyMng_c enemy_mng;
+    MicroGoombaManager microGoombaManager;
+    dWaterManager_c waterManager;
+    dEffectExplosionMgr_c effectExplosionManager;
+    dTimerMgr_c ten_coin_mgr;
+    dBlockMgr_c blockMgr;
+    dScoreMng_c score_mng;
+    dCurtainMng_c curtain_mng;
+    u8 unk[32];
+    u32 ptrToGameDisplay;
+    fBase_c *ptrToGoalManager;
+    fBase_c *ptrToSmallScoreManager;
+    u32 ptrToFukidashiManager;
+    u32 ptr_course_time_up;
+    u32 ptr_mini_game_cannon;
+    u32 ptr_mini_game_wire;
+    u32 ptr_model_play_manager;
+    u32 ptr_message_window;
+    fBase_c *ptr_model_play_guide;
+    u32 ptr_staff_credit_score;
+    dTheEnd_c *ptr_the_end;
+    dYesNoWindow_c *ptr_yes_no_window;
+    u32 unk2;
+    u8 curWorld;
+    u8 curLevel;
+    u8 curArea;
+    u8 curZone;
+    u8 curLayer;
+    u8 curEntrance;
+    u8 field_1212;
+    u8 field_1213;
+    u32 uselessPTMFIndex;
+
     static u32 exeFrame;
+    static dScStage_c *instance;
 };
 
 extern void *mFader;
@@ -4341,5 +4386,22 @@ public:
 	static mVideo *m_video;
 	static float l_AspectRatio;
 };
+
+int getNybbleValue(u32 settings, int fromNybble, int toNybble) {
+	int numberOfNybble = (toNybble - fromNybble) + 1;
+	int valueToUse = 48 - (4 * toNybble);
+	int fShit = pow(16, numberOfNybble) - 1;
+	return ((settings >> valueToUse) & fShit);
+}
+
+void getSpriteTexResName(char* buffer, int resID) {
+	sprintf(buffer, "g3d/t%02d.brres", resID);
+	buffer[strlen(buffer)] = 0;
+}
+
+void getSpriteTexResName255(char* buffer, int resID) {
+	sprintf(buffer, "g3d/t%03d.brres", resID);
+	buffer[strlen(buffer)] = 0;
+}
 
 #endif

@@ -2715,6 +2715,14 @@ SECTIONS {
 	dWmConnect_c_GetCourseNoFromName = 0x800F32F0;
 	setAnm__12daWmCourse_cFiff = 0x808CE8E0;
 
+	/* Spritedata Utils */
+	pow = 0x802E5894;
+
+	/* Grrrols */
+	instance__10dScStage_c = 0x8042a4a8;
+	DisplayScoreAddPopup = 0x800B3540;
+	AddScore = 0x80060690;
+
 	.text : {
 		FILL (0)
 
