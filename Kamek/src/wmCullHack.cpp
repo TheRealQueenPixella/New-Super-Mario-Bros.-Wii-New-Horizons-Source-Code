@@ -112,7 +112,7 @@ WmCullInfo wmNodeCullTable[9][30] = {
     { // WORLD 4
         {300.0f, "group01"},
         {250.0f, "group02"},
-        {250.0f, "group03"},
+        {300.0f, "group03"},
         {200.0f, "group04"},
         {350.0f, "group05"},
         {250.0f, "group06"},
