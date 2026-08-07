@@ -30,6 +30,12 @@ void dLevelInfo_c::load(void *buffer) {
 
 		for (int lev = 0; lev < thisSect->levelCount; lev++) {
 			entry_s *level = &thisSect->levels[lev];
+
+			// Set cannon flag
+			if (level->levelSlot == 35) {
+				SetSomeConditionShit(level->worldSlot, level->levelSlot, 0x40);
+			}
+
 			if (level->levelSlot < 42)
 				SetSomeConditionShit(level->worldSlot, level->levelSlot, level->flags);
 
@@ -70,7 +76,7 @@ dLevelInfo_c::entry_s *dLevelInfo_c::searchByDisplayNum(int world, int level) {
 	return 0;
 }
 
-
+// Doesn't do anything
 void UpdateFSStars() {
 	dLevelInfo_c *li = &dLevelInfo_c::s_info;
 	SaveBlock *save = GetSaveFile()->GetBlock(-1);

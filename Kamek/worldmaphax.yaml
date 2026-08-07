@@ -28,7 +28,7 @@ hooks:
 # Level hardcode removals
   # - {name: disableLevelToadCondSetting, type: nop_insn, area_pal: 0x80928008} not needed
   - {name: disableLevelRegularCondSetting, type: nop_insn, area_pal: 0x80928448}
-  # - {name: disableLevelCannonCondSetting, type: nop_insn, area_pal: 0x80928424} not needed
+  - {name: disableLevelCannonCondSetting, type: nop_insn, area_pal: 0x80928424}
   - {name: disableLevelNormalCondSetting, type: nop_insn, area_pal: 0x809286bc}
   - {name: disableLevelSecretCondSetting, type: nop_insn, area_pal: 0x809286e4}
 
