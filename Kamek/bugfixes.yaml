@@ -349,3 +349,8 @@ hooks:
     type: patch
     addr_pal: 0x800EB260
     data: '4080000C'
+
+  - name: GiantThwompCulling
+    type: patch
+    addr_pal: 0x8030AAD4
+    data: '00000040'
