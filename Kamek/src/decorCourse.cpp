@@ -3,6 +3,7 @@
 extern "C" int dWmConnect_c_GetCourseNoFromName(void *, char *);
 
 static bool sc_decorFlag = false;
+static bool sc_starFlag = false;
 
 // Course nodes to indicate as non-playable courses
 static const char *sc_decorList[] = {
@@ -21,12 +22,25 @@ int checkInDecorList(void *connect, char *name) {
         }
     }
 
+    // Check if its 5-Star
+    if (!sc_decorFlag && (!strcmp(name, "W909"))) {
+        sc_starFlag = true;
+    }
+
     // Original function call we replaced
     return dWmConnect_c_GetCourseNoFromName(connect, name);
 }
 
 extern "C" dActor_c *createCourse(u16 profID, ulong param, Vec *pos, S16Vec *ang) {
-    return dActor_c::create((Actors)profID, param | (sc_decorFlag << 0x1C), pos, ang);
+    int texNum = 0;
+    if (sc_decorFlag) {
+        texNum = 1;
+    } else if (sc_starFlag) {
+        texNum = 2;
+        sc_starFlag = false;
+    }
+
+    return dActor_c::create((Actors)profID, param | (texNum << 0x1C), pos, ang);
 }
 
 class daWmCourse_c : public dActor_c {
