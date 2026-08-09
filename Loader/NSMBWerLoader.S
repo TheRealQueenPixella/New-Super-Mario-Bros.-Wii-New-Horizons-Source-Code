@@ -102,7 +102,7 @@ RegionDetected:
 
     lis       r3, FSLRegion@h
     ori       r3, r3, FSLRegion@l
-    li        r4, 10
+    li        r4, 14
     bl        InsertRegionIntoFileName
 
     lis       r3, FSLStart@h
@@ -155,7 +155,7 @@ RegionDetected:
 
 
 memcpybuffer: .long 0, 0, 0
-FSLStart: .string "<< NSMBWER_LOADER \trelease build: Apr 11 2025 23:29:04 >>\n"
+FSLStart: .string "<< NSMBWER_LOADER \trelease build: Aug 09 2026 18:54:48 >>\n"
 FSLRegion: .string "-Found Region xx_x\n"
 FSLBCA: .string "-Removed BCA Check\n"
 FSLFinish: .string "-Patched GameInitTable\n"
@@ -513,11 +513,11 @@ Secret: .string "Hmm... what are you doing here?\nLooking for secrets, huh?\nWel
 ErrorOpenSys: .string "FATAL ERROR: System file could not be opened."
 ErrorAlloc: .string "FATAL ERROR: Failed to allocate memory (%d)."
 ErrorFileMissing:
-    .ascii "NSMBWer+\n"
+    .ascii "New Horizons\n"
     .ascii "\n"
     .ascii "Something went wrong while installing.\n"
     .ascii "The following file is required, but can't be found on the SD card or USB drive:\n"
-    .ascii "/NSMBWer+%s\n"
+    .ascii "/NewHorizons%s\n"
     .ascii "Disc version: %d\n"
     .ascii "Game region: %c"
     .byte 0
