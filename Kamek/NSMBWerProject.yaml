@@ -90,3 +90,4 @@ modules:
   - processed/decorCourse.yaml
   - processed/grrrol.yaml
   - processed/grrrolSpawner.yaml
+  - processed/courseClear.yaml
