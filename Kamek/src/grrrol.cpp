@@ -103,7 +103,7 @@ dActor_c *daGrrrol_c::build() {
 }
 
 const SpriteData GrrrolSpriteData = { ProfileId::EN_GRRROL, 8, -8, 0, 0, 0x100, 0x100, 0, 0, 0, 0, 0 };
-Profile GrrrolProfile(&daGrrrol_c::build, SpriteId::EN_GRRROL, &GrrrolSpriteData, ProfileId::EN_GRRROL, ProfileId::EN_GRRROL, "EN_GRRROL", GrrrolArcNameList, 0);
+Profile GrrrolProfile(&daGrrrol_c::build, SpriteId::EN_GRRROL, &GrrrolSpriteData, ProfileId::EN_GRRROL, ProfileId::EN_GRRROL, "EN_GRRROL", GrrrolArcNameList, 0x20);
 
 CREATE_STATE(daGrrrol_c, Roll);
 
