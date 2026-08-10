@@ -9,3 +9,9 @@ hooks:
     branch_type: b
     src_addr_pal: 0x808D3740
     target_func: 'daWmIsland_c::execute(void)'
+
+  - name: WS_NoLangTextures
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x808D3AB0
+    target_func: 'ReturnNone'
