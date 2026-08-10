@@ -20,7 +20,7 @@ static GXColor sc_WorldColorArray[6][2] = {
     {{0xFF, 0xFF, 0xFF, 0xFF}, {0xFF, 0xFF, 0x00, 0xFF}}  // W5
 };
 
-static const char *GAME_VERSION_NUM = "v1.0.2";
+static const char *GAME_VERSION_NUM = "v1.1.0";
 
 inline wchar_t *getWideVersion() {
     wchar_t *string;

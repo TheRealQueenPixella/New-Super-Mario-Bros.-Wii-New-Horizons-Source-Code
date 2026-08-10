@@ -1,7 +1,7 @@
 # New Super Mario Bros. Wii: New Horizons
 ## Source Code
 
-![Static Badge](https://img.shields.io/badge/Version-1.0.2-default)
+![Static Badge](https://img.shields.io/badge/Version-1.1.0-default)
 ![Static Badge](https://img.shields.io/badge/Based%20On-NSMBWer+%20(1.2)-DCDC73)
 
 This is the source code for NSMBW: New Horizons. It contains all of the new features added to the mod
