@@ -12,6 +12,8 @@ free to make an issue on the repo, and I'll try my best to respond in a timely m
 
 You can find the game files [here](https://github.com/TheRealQueenPixella/NSMBW-New-Horizons), as well as all releases of the mod.
 
+If you need to contact us or report any bugs, join our [Discord Server](https://discord.gg/BBUeSdn2kN).
+
 ### Credits and Features
 This is based off of [NSMBWer+][nsmbwer] 1.2 (master branch), credits for that project apply here.
 
