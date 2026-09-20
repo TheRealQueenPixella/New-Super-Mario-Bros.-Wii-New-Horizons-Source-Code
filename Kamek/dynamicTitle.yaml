@@ -1,0 +1,8 @@
+---
+source_files: [../src/dynamicTitle.cpp]
+hooks:
+  - name: LoadDynamicTitle
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x801018E0
+    target_func: 'dScRestartCrsin_c__startTitle(unsigned char, bool)'

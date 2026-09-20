@@ -91,3 +91,4 @@ modules:
   - processed/grrrol.yaml
   - processed/grrrolSpawner.yaml
   - processed/courseClear.yaml
+  - processed/dynamicTitle.yaml
