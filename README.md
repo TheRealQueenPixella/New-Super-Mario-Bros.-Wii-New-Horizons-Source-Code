@@ -2,7 +2,7 @@
 ## Source Code
 
 ![Static Badge](https://img.shields.io/badge/Version-1.2.0-default)
-![Static Badge](https://img.shields.io/badge/Based%20On-NSMBWer+%20(1.2)-DCDC73)
+![Static Badge](https://img.shields.io/badge/Based%20On-NSMBWer+%20(1.2.2)-DCDC73)
 
 This is the source code for NSMBW: New Horizons. It contains all of the new features added to the mod
 and will be kept up-to-date alongside releases of the mod. If you have any questions or concerns, feel
@@ -15,7 +15,7 @@ You can find the game files [here](https://github.com/TheRealQueenPixella/NSMBW-
 If you need to contact us or report any bugs, join our [Discord Server](https://discord.gg/BBUeSdn2kN).
 
 ### Credits and Features
-This is based off of [NSMBWer+][nsmbwer] 1.2 (master branch), credits for that project apply here.
+This is based off of [NSMBWer+][nsmbwer] 1.2.2 (master branch), credits for that project apply here.
 
 Below is a list of all new major features and their creator(s):
 * [LevelInfo Utils][liUtil] - Ryguy0777
@@ -25,10 +25,12 @@ Below is a list of all new major features and their creator(s):
 * Region-Free Titlescreen - MandyIGuess
 * Improved Scale Lifts - MandyIGuess
 * [Off-Screen Toad Balloon Fixes][kinoFix] - MandyIGuess
+  * Also several enemy-specific bugfixes for this mod
 * Better Munchers - Synel
 * New Horizons Credit Sequence - MandyIGuess
 * 3D File Select Backgrounds - MandyIGuess
 * [Grrrols][grrr] - SilverBuckeye, LucasD10, TheMarioMan
+* Dynamic Title-Screens - MandyIGuess
 
 ### Installation Guide
 For detailed setup instructions, see the following resources:
