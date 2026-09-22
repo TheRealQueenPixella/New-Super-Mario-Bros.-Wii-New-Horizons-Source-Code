@@ -1,0 +1,57 @@
+# Fix some issues with our Ambushes
+---
+source_files: [../src/ambushFixes.cpp]
+hooks:
+  # Prevent stuff from respawning
+  - {name: DeleteBros,       type: branch_insn, branch_type: b, src_addr_pal: 0x80023F00, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteCheep,      type: branch_insn, branch_type: b, src_addr_pal: 0x80A88F98, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteBubble,     type: branch_insn, branch_type: b, src_addr_pal: 0x809D0794, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteLilyPakkun, type: branch_insn, branch_type: b, src_addr_pal: 0x80AC5A94, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeletePiranha,    type: branch_insn, branch_type: b, src_addr_pal: 0x8002F0CC, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeletePokey,      type: branch_insn, branch_type: b, src_addr_pal: 0x80A9CE20, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteBooCircle,  type: branch_insn, branch_type: b, src_addr_pal: 0x808A00C0, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteWalkPakkun, type: branch_insn, branch_type: b, src_addr_pal: 0x80ABD218, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeletePipePakkun, type: branch_insn, branch_type: b, src_addr_pal: 0x8002CCF4, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteKoopas,     type: branch_insn, branch_type: b, src_addr_pal: 0x80A728BC, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteSpike,      type: branch_insn, branch_type: b, src_addr_pal: 0x80A00228, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteDryBones,   type: branch_insn, branch_type: b, src_addr_pal: 0x80A41530, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteRocky,      type: branch_insn, branch_type: b, src_addr_pal: 0x80A605E4, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteMechaKoopa, type: branch_insn, branch_type: b, src_addr_pal: 0x80A64dE4, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteLakitu,     type: branch_insn, branch_type: b, src_addr_pal: 0x80A34698, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteUrchins,    type: branch_insn, branch_type: b, src_addr_pal: 0x80AB8F5C, target_func: 'checkEnemyDelete(int)'}
+  - {name: DeleteFlameChomp, type: branch_insn, branch_type: b, src_addr_pal: 0x80A46F9C, target_func: 'checkEnemyDelete(int)'}
+
+  # Kill certain sprites if on-screen when the last balloon is collected
+  - {name: KillMechaKoopa,   type: patch, addr_pal: 0x80AFB8F8, data: '00000012'}
+  - {name: KillRocky,        type: patch, addr_pal: 0x80AFACD0, data: '00000012'}
+  - {name: KillWrench,       type: patch, addr_pal: 0x8097BF50, data: '00000022'} # Kill but award no score
+  - {name: KillPipePakkunUp, type: patch, addr_pal: 0x80AE7A88, data: '00000012'}
+
+  # Only works on stationary ones
+  - name: DisableBillBlasters
+    type: branch_insn
+    branch_type: bl
+    src_addr_pal: 0x80A5043C
+    target_func: 'daEnKild_c::checkDisable(void)'
+
+  - name: FixToadBalloonSpawning
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x807B9290
+    target_func: 'daBattleGame_c::execute(void)'
+
+  - name: FixToadBalloonZPos
+    type: patch
+    addr_pal: 0x80AD0510
+    data: '44160000' # 600.0f
+
+  # Disable the spawning sound, since it plays EVERY time it spawns
+  - name: ChestNoSound
+    type: nop_insn
+    area_pal: 0x808AB264
+
+  - name: NewChestSound
+    type: branch_insn
+    branch_type: b
+    src_addr_pal: 0x80A0ED78
+    target_func: 'NewChestSound(bool)'

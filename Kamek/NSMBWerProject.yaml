@@ -80,7 +80,6 @@ modules:
   - processed/characterChange.yaml
   - processed/titleVersion.yaml
   - processed/liftScales.yaml
-  - processed/toadBalloonFix.yaml
   - processed/muncher.yaml
   - processed/wm_W304.yaml
   - processed/staffRoll.yaml
@@ -92,3 +91,4 @@ modules:
   - processed/grrrolSpawner.yaml
   - processed/courseClear.yaml
   - processed/dynamicTitle.yaml
+  - processed/ambushFixes.yaml

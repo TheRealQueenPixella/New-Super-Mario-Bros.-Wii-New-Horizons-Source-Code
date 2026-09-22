@@ -103,7 +103,7 @@ dActor_c *daGrrrol_c::build() {
 }
 
 const SpriteData GrrrolSpriteData = { ProfileId::EN_GRRROL, 8, -8, 0, 0, 0x100, 0x100, 0, 0, 0, 0, 0 };
-Profile GrrrolProfile(&daGrrrol_c::build, SpriteId::EN_GRRROL, &GrrrolSpriteData, ProfileId::EN_GRRROL, ProfileId::EN_GRRROL, "EN_GRRROL", GrrrolArcNameList, 0x20);
+Profile GrrrolProfile(&daGrrrol_c::build, SpriteId::EN_GRRROL, &GrrrolSpriteData, ProfileId::EN_GRRROL, ProfileId::EN_GRRROL, "EN_GRRROL", GrrrolArcNameList, 0x10);
 
 CREATE_STATE(daGrrrol_c, Roll);
 
@@ -1012,6 +1012,10 @@ bool daGrrrol_c::breakMegaBlockSpritesAhead(u8 movementDirection) {
 }
 
 int daGrrrol_c::onCreate() {
+	if (StageE4::instance->mIsAmbushComplete) {
+		return 2;
+	}
+
 	bool spawnedFromPipe = ((this->settings >> 30) & 0x1) != 0;
 	u8 pipeSpawnDirection = (this->settings >> 6) & 0x3;
 	this->isMega = ((this->settings >> 28) & 0x1) != 0;

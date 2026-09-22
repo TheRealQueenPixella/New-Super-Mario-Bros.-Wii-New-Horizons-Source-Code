@@ -102,6 +102,10 @@ static bool GrrrolSpawnerPhysReturnFalse3(daGrrrolSpawner_c *one, dStageActor_c 
 }
 
 int daGrrrolSpawner_c::onCreate() {
+	if (StageE4::instance->mIsAmbushComplete) {
+		return 2;
+	}
+
 	u8 frequency = (this->settings >> 28) & 0x3;
 	this->pipeLength = (this->settings >> 24) & 0xF;
 	this->spawnDirection = (this->settings >> 20) & 0x3;

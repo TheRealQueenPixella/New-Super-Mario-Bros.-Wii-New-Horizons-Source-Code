@@ -3857,8 +3857,11 @@ class dYesNoWindow_c : public dBase_c {
 class daBossDemo_c;
 class StageE4 {
 	public:
-		u8 ___[0x14];
+		u8 ___[0x18];
 		daBossDemo_c *currentBossDemo;
+		void *kazanMgr;
+		int autoscroolSwichID;
+		int mIsAmbushComplete;
 		// NOT COMPLETE
 		static StageE4 *instance;
 
@@ -4403,5 +4406,24 @@ void getSpriteTexResName255(char* buffer, int resID) {
 	sprintf(buffer, "g3d/t%03d.brres", resID);
 	buffer[strlen(buffer)] = 0;
 }
+
+class daEnGreenCoin_c : public dEn_c {
+public:
+    USING_STATES(daEnGreenCoin_c);
+    REF_NINTENDO_STATE(Move);
+};
+
+class daBattleGame_c : public dActorState_c {
+public:
+    u32 pad;
+    int gameBeginDelay;
+    int balloonActivateDelay;
+    u32 pad2;
+
+    int execute();
+
+    USING_STATES(daBattleGame_c);
+    REF_NINTENDO_STATE(DemoStart_SoundStartWait);
+};
 
 #endif

@@ -2723,6 +2723,9 @@ SECTIONS {
 	DisplayScoreAddPopup = 0x800B3540;
 	AddScore = 0x80060690;
 
+	/* Disable Bill Blasters */
+	FUN_80A50370__10daEnKild_cFv = 0x80A50370;
+
 	.text : {
 		FILL (0)
 
