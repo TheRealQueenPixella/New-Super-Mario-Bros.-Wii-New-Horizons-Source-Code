@@ -26,3 +26,8 @@ hooks:
     - name: DisableControllerCheck2
       type: nop_insn
       area_pal: 0x8010e030
+
+    - name: ExtensionScreenSoundFix
+      type: patch
+      addr_pal: 0x8010DFE4
+      data: '2C1D00FF'
